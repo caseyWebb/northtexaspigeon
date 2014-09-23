@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="medium-4 columns">
+    <ul class="users">
+      
+      <li>
+        <a ui-sref=".invite">
+          <span class="fa fa-plus"></span>
+          Add Writer
+        </a>
+      </li>
+
+      <hr>
+
+      <li class="user" ng-repeat="user in users">
+        <a ng-class="{ active: user.id === selectedUser.id, disabled: user.isDisabled }"
+           ui-sref=".show({ userID: user.id })">
+           {{ user.name }}
+           <small>{{ user.pseudonym }}</small>
+         </a>
+      </li>
+
+    </ul>
+  </div>
+
+  <div ui-view class="medium-6 columns">
+  </div>
+</div>

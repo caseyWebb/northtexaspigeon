@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    title North Texas Pigeon | Admin Login
+
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    link(rel="stylesheet", href="/bower_components/foundation/css/foundation.css")
+
+    style.
+      body {
+        margin-top: 30px;
+      }
+
+  body
+    .row
+      .small-10.medium-8.large-6.small-centered.columns
+
+        if !req.param('token')
+          h1 oops...
+          h4.subheader something isn't right here
+          p.
+            The URL provided doesn't appear to be correct. Try again using the link
+            in the email you recieved. If it still doesn't work, contact the person
+            that sent you an invite.
+
+        else
+
+          h1 Welcome to the Pigeon!
+          h4.subheader Let's get started...
+          br
+
+          form(method='POST', action='/user')
+            input(type='hidden', name='token', value=req.param('token'))
+            .row
+              .medium-6.columns
+                input(type='text', placeholder='Name', name='name', required)
+              .medium-6.columns
+                input(type='text', placeholder='Pseudonym', name='pseudonym', required)
+            .row
+              .medium-12.end.columns
+                input(type='email', placeholder='Email Address', name='email', required)
+            .row
+              .medium-12.end.columns
+                input(type='text', placeholder='Tagline', name='tagline', required)
+            .row
+              .medium-6.columns
+
+                - var err = req.flash('passMismatch')
+                if err.length > 0
+                  .alert-box.alert= err
+
+                input(type='password', placeholder='Password', name='password', required)
+                input(type='password', placeholder='Retype Password', name='passwordConf', required)
+              .medium-6.end.columns
+                button.expand(type='submit') LET'S GO

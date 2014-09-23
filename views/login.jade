@@ -1,0 +1,88 @@
+doctype html
+html
+  head
+    title North Texas Pigeon | Admin Login
+
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')  
+    link(rel="stylesheet", href="/bower_components/foundation/css/foundation.css")
+    
+    style.
+      body {
+        margin-top: 30px;
+      }
+
+  body
+    .row
+      .small-8.medium-6.large-4.small-centered.columns
+        h1 Login
+
+        - var err = req.flash('loginErr')
+        if err.length > 0
+          .alert-box.alert= err
+        
+        form(method='POST', action='/auth/login', name='loginForm')
+          input(type='email', placeholder='Email Address', name='email', required)
+          
+          input(type='password', placeholder='Password', name='password', required)
+          
+          - var redirect = req.flash('redirect')
+          if redirect.length > 0
+            input(type='hidden', name='redirect', value=redirect)
+
+          button.tiny(type='submit') LOGIN
+
+          br
+
+          small: a(data-reveal-id='forgotPasswordModal') I forgot my password
+    
+    #forgotPasswordModal.reveal-modal(data-reveal)
+      h3 You imbecile
+      h6.subheader Stick your email in this box and I'll get you a new one...
+      
+      form#forgotPasswordForm
+        input(type='email', placeholder='Email Address', name='forgotPass', required)
+        button#resetPassBtn.tiny(type='submit') RESET PASSWORD
+        br
+        small#lastPassMessage(style='display: none;')
+          | &nbsp;and go install
+          a(href='https://lastpass.com/') LastPass
+          | &nbsp;so this doesn't happen again.
+      
+      #passwordResetErrMessage.alert-box.alert(style='display: none;')
+
+    script(src='/bower_components/jquery/dist/jquery.js')
+    script(src='/bower_components/foundation/js/foundation.min.js')
+    script.
+      $(document).foundation()
+      $('#forgotPasswordForm').submit(function(e) {
+        $('#resetPassBtn')
+          .attr('disabled', 'disabled')
+          .text('RESETTING PASSWORD...')
+
+        var email = $('input[name=forgotPass]').val()
+
+        // TODO: send request to reset pass
+        $.ajax({
+          url: '/user/resetPassword',
+          type: 'GET',
+          data: {
+            email: email
+          },
+          success: function() {
+            $('#resetPassBtn').text('YOUR PASSWORD HAS BEEN RESET. CHECK YOUR EMAIL.')
+            $('#lastPassMessage').show()
+          },
+          error: function(err) {
+            $('#resetPassBtn')
+              .removeAttr('disabled')
+              .text('RESET PASSWORD')
+
+            $('#passwordResetErrMessage').text(err.responseJSON.error || 'Something has gone horribly wrong...').show()
+            
+            console.error(err)
+          }
+        })
+
+        e.preventDefault()
+        e.stopPropagation()
+      })

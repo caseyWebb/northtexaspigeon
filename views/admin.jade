@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title North Texas Pigeon | Admin Panel
+
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+
+    include linker/admin/styles
+
+  body(ng-app='app')
+
+    toaster-container(toaster-options="{'position-class': 'toast-top-full-width', 'time-out': 2000 }")
+
+    .row
+
+      nav.medium-2.columns
+        include includes/adminNav
+
+      #stage.medium-10.columns(ui-view)
+
+    include linker/admin/templates
+    include linker/admin/scripts

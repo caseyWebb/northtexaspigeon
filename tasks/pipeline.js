@@ -9,29 +9,51 @@
  */
 
 
-
 // CSS files to inject in order
-//
-// (if you're using LESS with the built-in default config, you'll want
-//  to change `assets/styles/importer.less` instead.)
-var cssFilesToInject = [
-  'styles/**/*.css'
+var publicCSSFilesToInject = [
+  
+  'bower_components/foundation/css/normalize.css',
+  'bower_components/foundation/css/foundation.css',  
+
+  'public/styles/**/*.css',
+  'shared/styles/**/*.css'
+];
+
+var adminCSSFilesToInject = [
+
+  'bower_components/foundation/css/normalize.css',
+  'bower_components/foundation/css/foundation.css',
+  'bower_components/font-awesome/css/font-awesome.css',
+  'bower_components/animate.css/animate.css',
+
+  'admin/styles/**/*.css',
+  'shared/styles/**/*.css'
 ];
 
 
 // Client-side javascript files to inject in order
-// (uses Grunt-style wildcard/glob/splat expressions)
-var jsFilesToInject = [
+var publicJSFilesToInject = [
+
+  'bower_components/jquery/dist/jquery.js',
+  'bower_components/lodash/dist/lodash.js',
+  'bower_components/fastclick/lib/fastclick.js',
   
-  // Load sails.io before everything else
-  'js/dependencies/sails.io.js',
+  'public/js/**/*.js',
+  'shared/js/**/*.js'
+];
 
-  // Dependencies like jQuery, or Angular are brought in here
-  'js/dependencies/**/*.js',
+var adminJSFilesToInject = [
 
-  // All of the rest of your client-side js files
-  // will be injected here in no particular order.
-  'js/**/*.js'
+  'bower_components/angular/angular.js',
+  'bower_components/angular-route/angular-route.js',
+  'bower_components/angular-ui-router/release/angular-ui-router.js',
+  'bower_components/angular-animate/angular-animate.js',
+  'bower_components/angularjs-toaster/toaster.js',
+  'bower_components/lodash/dist/lodash.js',
+  'bower_components/angular-foundation/mm-foundation-tpls.js',
+  
+  'admin/js/**/*.js',
+  'shared/js/**/*.js'
 ];
 
 
@@ -44,21 +66,36 @@ var jsFilesToInject = [
 // with the linker, no problem-- you'll just want to make sure the precompiled
 // templates get spit out to the same file.  Be sure and check out `tasks/README.md`
 // for information on customizing and installing new tasks.
-var templateFilesToInject = [
-  'templates/**/*.html'
+
+var publicTemplateFilesToInject = [
+  'public/templates/**/*.html'
 ];
 
+var adminTemplateFilesToInject = [
+  'admin/templates/**/*.html'
+];
 
 
 // Prefix relative paths to source files so they point to the proper locations
 // (i.e. where the other Grunt tasks spit them out, or in some cases, where
 // they reside in the first place)
-module.exports.cssFilesToInject = cssFilesToInject.map(function(path) {
+module.exports.publicCSSFilesToInject = publicCSSFilesToInject.map(function(path) {
   return '.tmp/public/' + path;
 });
-module.exports.jsFilesToInject = jsFilesToInject.map(function(path) {
+module.exports.adminCSSFilesToInject = adminCSSFilesToInject.map(function(path) {
   return '.tmp/public/' + path;
 });
-module.exports.templateFilesToInject = templateFilesToInject.map(function(path) {
+
+module.exports.publicJSFilesToInject = publicJSFilesToInject.map(function(path) {
+  return '.tmp/public/' + path;
+});
+module.exports.adminJSFilesToInject = adminJSFilesToInject.map(function(path) {
+  return '.tmp/public/' + path;
+});
+
+module.exports.publicTemplateFilesToInject = publicTemplateFilesToInject.map(function(path) {
+  return 'assets/' + path;
+});
+module.exports.adminTemplateFilesToInject = adminTemplateFilesToInject.map(function(path) {
   return 'assets/' + path;
 });

@@ -1,0 +1,33 @@
+<h3>{{ selectedUser.name }}</h3>
+<h4 class="subheader">{{ selectedUser.email }}</h4>
+
+<br>
+
+<div class="row">
+  <div class="small-2 columns">
+    <div class="switch tiny">
+      <input id="adminSwitch" type="checkbox" ng-model="selectedUser.isAdmin" ng-change="updateUser(selectedUser)">
+      <label for="adminSwitch"></label>
+    </div>
+  </div>
+  <div class="small-10 columns">
+    <strong>Admin</strong>
+    <p>Admins can invite and disable users, manage advertising, and view analytics.</p>
+  </div>
+</div>
+
+
+<br>
+
+<div class="row">
+  <div class="small-2 columns">
+    <div class="switch tiny">
+      <input id="disabledSwitch" type="checkbox" ng-model="selectedUser.isDisabled" ng-change="updateUser(selectedUser)">
+      <label for="disabledSwitch"></label>
+    </div>
+  </div>
+  <div class="small-10 columns">
+    <strong>Disabled</strong>
+    <p>Disabling a user will remove their ability to log in and create or modify content, but will not affect their existing content.</p>
+  </div>
+</div>

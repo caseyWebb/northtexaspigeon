@@ -1,0 +1,46 @@
+<form novalidate name="profileForm" ng-submit="save(user)">
+
+  <div class="row">
+    <div class="medium-4 columns">
+      <input type="text" placeholder="Name" ng-model="user.name" required>
+    </div>
+    <div class="medium-4 end columns">
+      <input type="text" placeholder="Pseudonym" ng-model="user.pseudonym" required>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-8 end columns">
+      <input type="email" placeholder="Email Address" ng-model="user.email" required>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="medium-8 end columns">
+      <input type="text" placeholder="Tagline" ng-model="user.tagline" required>
+    </div>
+  </div>
+
+  <button class="tiny" type="submit" ng-disabled="profileForm.$invalid || profileForm.$pristine || savingProfile">
+    {{ savingProfile ? 'SAVING...' : 'SAVE' }}</button>
+
+</form> 
+
+<hr>
+
+<form novalidate name="passwordForm" ng-submit="changePass(password)">
+
+  <div class="row">
+    <div class="medium-4 columns">
+      <input type="password" placeholder="Password" ng-model="password" required>
+    </div>  
+    <div class="medium-4 columns end">
+      <input type="password" placeholder="Retype Password" ng-model="passConf" input-match="password" required>
+    </div>
+  </div>
+
+  <button class="tiny" type="submit" ng-disabled="passwordForm.$invalid || savingPass">
+    {{ savingPass ? 'SAVING...' : 'SAVE' }}</button>
+  </button>
+  
+</form>

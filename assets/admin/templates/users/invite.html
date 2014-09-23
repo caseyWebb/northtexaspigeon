@@ -1,0 +1,22 @@
+<form>
+    <input type="text" placeholder="Email Addresses" ng-model="emails" ng-required>
+    <small>
+      Enter a list of semi-colon separated email addresses
+      to send invites to.
+
+      <br>
+
+      (e.g. 'foobar@example.com; bazqux@example.com')
+
+      <br>
+
+      <strong>NOTE:</strong> Signup links expire after 3 days
+    </small>
+
+    <br>
+    <br>
+
+    <button class="tiny" ng-click="sendInvites(emails)" ng-disabled="sendingInvites">
+      {{ sendingInvites ? 'SENDING...' : 'SEND INVITES' }}
+    </button>
+</form>

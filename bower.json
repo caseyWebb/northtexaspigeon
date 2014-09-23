@@ -14,5 +14,18 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "foundation": "~5.4.4",
+    "angular": "~1.2.25",
+    "fastclick": "~1.0.3",
+    "angular-ui-router": "~0.2.11",
+    "angular-animate": "~1.2.25",
+    "animate.css": "~3.2.0",
+    "lodash": "~2.4.1",
+    "angular-route": "~1.2.25",
+    "font-awesome": "~4.2.0",
+    "angular-foundation": "~0.3.1",
+    "angularjs-toaster": "~0.4.8"
+  }
 }

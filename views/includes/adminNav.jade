@@ -1,0 +1,43 @@
+ul.side-nav(ng-controller='navCtrl')
+
+  li: a(ng-class="{ active:isActive('/articles') }", href='/admin/articles')
+    .fa.fa-file-text-o
+    span Articles
+
+  li: a
+    .fa.fa-picture-o
+    span Pictures
+
+  li: a
+    .fa.fa-video-camera
+    span Videos
+
+  li: a(ng-class="{ active:isActive('/profile') }", href='/admin/profile')
+    .fa.fa-user
+    span My Profile
+
+  if (req.session.user.isAdmin)
+
+    hr
+
+    li: a(ng-class="{ active:isActive('/users') }", href='/admin/users')
+      .fa.fa-users
+      span Writers
+
+    li: a
+      .fa.fa-credit-card
+      span Ads
+
+    li: a
+      .fa.fa-bar-chart
+      span Analytics
+
+  hr
+
+  li: small: a
+    .fa.fa-mail-reply
+    span back to the site
+
+  li: small: a(href='/logout', target='_self')
+    .fa.fa-angellist
+    span logout
