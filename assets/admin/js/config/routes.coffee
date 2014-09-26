@@ -15,29 +15,47 @@ app.config([
 
     ################# USERS ##################
 
-      .state 'users',
+      .state 'user',
         url: '/admin/users'
         template: JST['/users/index.html']()
         controller: 'userCtrl'
 
-      .state 'users.invite',
+      .state 'user.invite',
         url: '/invite'
         template: JST['/users/invite.html']()
-        controller: ['$scope',
-                    (  s ) ->
-                      s.selectUser()
-                    ]
+        controller: 'userNewCtrl'
 
-      .state 'users.show',
+      .state 'user.show',
         url: '/:userID'
         template: JST['/users/show.html']()
-        controller: ['$scope', '$stateParams'
-                    (  s,        stateParams ) ->
-                      s.selectUser(stateParams.userID)
-                    ]
+        controller: 'userShowCtrl'
 
       .state 'profile',
         url: '/admin/profile'
         template: JST['/users/edit.html']()
         controller: 'profileCtrl'
+
+    ################ ARTICLES ################
+
+      .state 'article',
+        url: '/admin/articles'
+        template: JST['/articles/index.html']()
+        controller: 'articleCtrl'
+
+      .state 'article.new',
+        url: '/new'
+        template: JST['/articles/edit.html']()
+        controller: 'articleEditCtrl'
+
+      .state 'article.show',
+        url: '/:articleID'
+        template: JST['/articles/show.html']()
+        controller: 'articleShowCtrl'
+
+      .state 'article.edit',
+        url: '/:articleID/edit'
+        template: JST['/articles/edit.html']()
+        controller: 'articleEditCtrl'
+
+      
 ])

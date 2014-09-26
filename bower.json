@@ -26,6 +26,13 @@
     "angular-route": "~1.2.25",
     "font-awesome": "~4.2.0",
     "angular-foundation": "~0.3.1",
-    "angularjs-toaster": "~0.4.8"
+    "angularjs-toaster": "~0.4.8",
+    "angular-sanitize": "~1.2.25",
+    "angular-elastic": "~2.4.0",
+    "angular-markdown-directive": "~0.3.0",
+    "angular-marked": "Hypercubed/angular-marked#~0.0.12",
+    "ng-context-menu": "~1.0.0",
+    "ng-file-upload": "~1.6.12",
+    "ngInfiniteScroll": "~1.1.2"
   }
 }

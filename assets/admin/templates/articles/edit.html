@@ -1,0 +1,141 @@
+<div class="row">
+
+  <div class="medium-6 columns">
+
+    <!-- headline image -->
+
+    <div ng-if="!article.headlineImg" class="file-dropzone panel text-center"
+        ng-file-select="setHeadlineImg($files)"
+        ng-file-drop="setHeadlineImg($files)"
+        ng-file-drag-over-class="callout">
+
+      <small>Drop headline image here, or click to open dialog</small>
+    </div>
+
+    <div ng-if="article.headlineImg" class="overlay-container"
+        ng-file-select="setHeadlineImg($files)"
+        ng-file-drop="setHeadlineImg($files)"
+        ng-file-drag-over-class="dropping">
+
+      <div class="overlay drop-message">Click here or drop a new image to change</div>
+
+      <img class="headline-img" ng-src="{{ article.headlineImg.dataUrl || article.headlineImg.full }}">
+    </div>
+
+    <!-- form -->
+
+    <form novalidate name="articleForm">
+      <input type="text" name="title" ng-model="article.title" placeholder="Headline" required ng-maxlength="100">
+      <small ng-hide="!articleForm.title.$error.maxlength" class="error">Keep the headline under 100 chars (so we can tweet it with a bit.ly link)</small>
+
+      <input type="text" name="description" ng-model="article.description" placeholder="Subheadline" ng-maxlength="240">
+      <small ng-hide="!articleForm.description.$error.maxlength" class="error">Are you writing a novel? The subheader is limited to 240 chars.</small>
+
+      <div class="row">
+        <div class="small-6 columns">
+          <label class="tiny button expand" ng-class="{ active: article.category === 'news' }">
+            <input type="radio" ng-model="article.category" value="news" style="display: none;" ng-required="!article.category">
+            <span>News</span>
+          </label>
+        </div>
+        <div class="small-6 columns">
+          <label class="tiny button expand" ng-class="{ active: article.category === 'columns' }">
+            <input type="radio" ng-model="article.category" value="columns" style="display: none;" ng-required="!article.category">
+            <span>Column</span>
+          </label>
+        </div>
+      </div>
+
+      <textarea id="article-input"
+        context-menu
+        msd-elastic
+        data-target='insert-image-context-menu'
+        ng-model="article.markdown"
+        placeholder="type your article here..."
+        ng-file-drop="insertPicture($files)"
+        required>
+      </textarea>
+    </form>
+    
+    <!-- formatting rules -->
+    
+    <small>
+
+      <div class="panel">
+        <strong>Formatting Reference</strong>
+        <br>
+        <br>
+
+        *italic* or _italic_
+        <br>
+        <br>
+
+        **bold** or __bold__
+        <br>
+        <br>
+
+        [Link text](http://example.com)
+        <br>
+        <br>
+
+        ![](http://example.com/link/to/image.jpg)
+        <br>
+        Drag-and-drop or right-click to insert a picture
+        <br>
+        <br>
+        
+        - This is how
+        <br>
+        - you make
+        <br>
+        - a list
+        <br>
+        <br>
+
+        > This is how
+        <br>
+        > you make
+        <br>
+        > a block quote
+        <br>
+        <br>
+
+        To break onto a new line, add two spaces to the end of the previous line.
+
+      </div>
+
+    </small>
+
+  </div>
+
+  <!-- article preview -->
+  
+  <div class="medium-6 columns">
+    <h3 ng-if="!article.title">Headline</h3>
+    <h3>{{ article.title }}</h3>
+
+    <h5 class="subheader" ng-if="!article.description">Subheadline</h5>
+    <h5 class="subheader">{{ article.description }}</h5>
+    <hr>
+
+    <h6 ng-if='!article.markdown'>
+      A preview of your article will be shown here. Go ahead, type something.
+    </h6>
+    <div preview-article="article.markdown" class="preview"></div>
+  
+    <!-- publish button -->
+
+    <button class="publish-btn tiny" ng-click="publish()" ng-disabled="articleForm.$invalid">
+      {{ publishing ? 'PUBLISHING...' : 'PUBLISH' }}
+    </button>
+  </div>
+
+  <!-- upload picture context menu -->
+
+  <ul id="insert-image-context-menu" class='context-menu f-dropdown' style='position: fixed;'>
+    <li ng-file-select="insertPicture($files)" accept="image/*">
+      <a>Insert a picture here</a>
+    </li>
+  </ul>
+
+</div>

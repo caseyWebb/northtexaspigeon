@@ -30,3 +30,7 @@ module.exports.policies =
     destroy: false # users should be disabled, not deleted
     invite: 'isAdmin'
     resetPassword: true
+
+  ArticleController:
+    find: true
+    findOne: true

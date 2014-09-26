@@ -44,14 +44,23 @@ var publicJSFilesToInject = [
 
 var adminJSFilesToInject = [
 
+  'bower_components/jquery/dist/jquery.js',
+  'bower_components/ng-file-upload-html5-shim.js',
   'bower_components/angular/angular.js',
   'bower_components/angular-route/angular-route.js',
   'bower_components/angular-ui-router/release/angular-ui-router.js',
   'bower_components/angular-animate/angular-animate.js',
+  'bower_components/angular-sanitize/angular-sanitize.js',
+  'bower_components/angular-elastic/elastic.js',
   'bower_components/angularjs-toaster/toaster.js',
   'bower_components/lodash/dist/lodash.js',
   'bower_components/angular-foundation/mm-foundation-tpls.js',
-  
+  'bower_components/marked/lib/marked.js',
+  'bower_components/angular-marked/angular-marked.js',
+  'bower_components/ng-context-menu/dist/ng-context-menu.js',
+  'bower_components/ng-file-upload/angular-file-upload.js',
+  'bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js',
+
   'admin/js/**/*.js',
   'shared/js/**/*.js'
 ];

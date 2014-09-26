@@ -1,9 +1,10 @@
-<div class="row">
-  <div class="medium-4 columns">
-    <ul class="users">
+<div class="row container">
+  <div class="medium-4 columns scrollable container">
+    <ul class="index" infinite-scroll="getUsers()">
       
       <li>
-        <a ui-sref=".invite">
+        <a ng-class="{ active: user === 'invite' }"
+           ui-sref=".invite">
           <span class="fa fa-plus"></span>
           Add Writer
         </a>
@@ -11,11 +12,18 @@
 
       <hr>
 
-      <li class="user" ng-repeat="user in users">
-        <a ng-class="{ active: user.id === selectedUser.id, disabled: user.isDisabled }"
-           ui-sref=".show({ userID: user.id })">
-           {{ user.name }}
-           <small>{{ user.pseudonym }}</small>
+      <li>
+        <input  type="text"
+                placeholder="Search..."
+                ng-model="searchText"
+                ng-change="getUsers(true)">
+      </li>
+
+      <li class="user" ng-repeat="_user in users">
+        <a ng-class="{ active: _user.id === user.id, disabled: _user.isDisabled }"
+           ui-sref=".show({ userID: _user.id })">
+           {{ _user.name }}
+           <small>{{ _user.pseudonym }}</small>
          </a>
       </li>
 
