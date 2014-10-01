@@ -7,6 +7,10 @@ module.exports =
 
   find: (req, res) ->
     Article.find
+      where:
+        title:
+          contains:
+            req.param('searchText') || ''
       sort: 'createdAt DESC'
       skip: 15 * req.param('page') || 0
       limit: 15

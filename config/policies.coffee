@@ -36,3 +36,8 @@ module.exports.policies =
     findOne: true
     findByCategory: true
     comment: true
+
+  VideoController:
+    find: true
+    findOne: true
+    comment: true

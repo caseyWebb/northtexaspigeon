@@ -1,0 +1,89 @@
+<div class="row">
+
+  <div class="medium-6 columns">
+
+    <!-- form -->
+
+    <form novalidate name="videoForm">
+      <input type="text" name="title" ng-model="video.title" placeholder="Headline" required ng-maxlength="100">
+      <small ng-hide="!videoForm.title.$error.maxlength" class="error">Keep the headline under 100 chars (so we can tweet it with a bit.ly link)</small>
+
+      <input type="text" name="youtubeURL" ng-model="video.url" placeholder="Youtube URL" required>
+
+      <textarea
+        msd-elastic
+        ng-model="video.markdown"
+        placeholder="use this area to type an accompanying story and/or hashtags"
+        required>
+      </textarea>
+    </form>
+    
+    <!-- formatting rules -->
+    
+    <small>
+
+      <div class="panel">
+        <strong>Formatting Reference</strong>
+        <br>
+        <br>
+
+        *italic* or _italic_
+        <br>
+        <br>
+
+        **bold** or __bold__
+        <br>
+        <br>
+
+        [Link text](http://example.com)
+        <br>
+        <br>
+        
+        - This is how
+        <br>
+        - you make
+        <br>
+        - a list
+        <br>
+        <br>
+
+        > This is how
+        <br>
+        > you make
+        <br>
+        > a block quote
+        <br>
+        <br>
+
+        To break onto a new line, add two spaces to the end of the previous line.
+
+      </div>
+
+    </small>
+
+  </div>
+
+  <!-- video preview -->
+  
+  <div class="medium-6 columns">
+    <h3 ng-if="!video.title">Headline</h3>
+    <h3>{{ video.title }}</h3>
+
+    <img ng-src="{{ 'http://img.youtube.com/vi/' + getYoutubeID(video.url) + '/0.jpg' }}")/>
+    <br>
+    <br>
+    <br>
+
+    <h6 ng-if='!video.markdown'>
+      A preview of your story will be shown here. Go ahead, type something.
+    </h6>
+    <div preview-article="video.markdown" class="preview"></div>
+  
+    <!-- publish button -->
+
+    <button class="publish-btn tiny" ng-click="publish()" ng-disabled="videoForm.$invalid">
+      {{ publishing ? 'PUBLISHING...' : 'PUBLISH' }}
+    </button>
+  </div>
+
+</div>

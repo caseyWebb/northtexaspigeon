@@ -12,11 +12,10 @@ app
     ### functions ###
 
     s.getArticles = _.throttle (replace) ->
-      s.counter ?= 0
-      pageSize = 15
+      s.currentPage ?= 0
 
       if replace
-        s.counter = 0
+        s.currentPage = 0
         s.endReached = false
 
       return if s.endReached
@@ -24,15 +23,11 @@ app
       http 
         url: '/article'
         params:
-          where:
-            title:
-              contains: s.searchText || ''
-          skip: s.counter++ * pageSize
-          limit: pageSize
-          sort: 'createdAt DESC'
+          page: s.currentPage
+          searchText: s.searchText
 
       .success (res) ->
-        if res.articles.length < pageSize
+        if res.articles.length < 15
           s.endReached = true
 
         if replace
@@ -53,8 +48,8 @@ app
       else 
         http.get("/article/#{articleID}")
 
-          .success (user) ->
-            s.article = user
+          .success (article) ->
+            s.article = article
            
           .error (err) ->
             alert(err)

@@ -1,0 +1,37 @@
+<div class="row container">
+  <div class="medium-4 columns scrollable container"
+       ng-class='isEditing ? "collapse" : "medium-4"'
+       infinite-scroll="getVideos()">
+
+    <ul class="index">
+
+      <li>
+        <a ui-sref=".new()">
+          <span class="fa fa-plus"></span>
+          New Video
+        </a>
+      </li>
+
+      <hr>
+
+      <li>
+        <input  type="text"
+                placeholder="Search..."
+                ng-model="searchText"
+                ng-change="getVideos(true)">
+      </li>
+
+      <li ng-repeat="_video in videos">
+        <a ng-class="{ active: _video.slug === video.slug }"
+           ui-sref=".show({ videoID: _video.slug })">
+           {{ _video.title }}
+           <small>{{ _video.poster.name }}</small>
+         </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <div ui-view class="columns" ng-class='isEditing ? "medium-12" : "medium-8"'></div>
+</div>

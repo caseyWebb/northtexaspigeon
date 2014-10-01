@@ -9,13 +9,13 @@ if !req.param('noLayout')
 
       article
 
-        img(src=headlineImg.full)
+        .flex-video
+                  iframe(src='http://www.youtube.com/embed/#{youtubeID}', width='640px', height='390px', frameborder='0', allowfullscreen)
 
         h1.title.page-title= title
-        strong.description= description
 
         - var writtenOn = new Date(createdAt); var month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-        em.by-line #{author.pseudonym} on #{month[writtenOn.getMonth()]} #{writtenOn.getDate()}, #{writtenOn.getFullYear()}
+        em.by-line #{poster.pseudonym} on #{month[writtenOn.getMonth()]} #{writtenOn.getDate()}, #{writtenOn.getFullYear()}
 
         .content!= html
 
@@ -27,8 +27,8 @@ if !req.param('noLayout')
     #authenticatedUserMessage.show-for-large-up
       strong Hey there,
       |  I noticed you're logged in.
-      a.tiny.button.admin-link(href="/admin/article/#{id}", target='_blank').
-        Click here to open this article in the admin portal
+      a.tiny.button.admin-link(href="/admin/video/#{id}", target='_blank').
+        Click here to open this video in the admin portal
 
 
 ////////////////////////////////

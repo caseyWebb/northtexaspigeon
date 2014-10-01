@@ -23,6 +23,8 @@ module.exports =
   returns (formattedContent, tags)
   ###
   hashtag: (content, cb) ->
+    return cb('', []) if !content?
+    
     hashtagRegex = /#(\w+)/g
     
     formattedContent = content.replace hashtagRegex, (match) ->

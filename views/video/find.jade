@@ -1,0 +1,23 @@
+if !req.param('noLayout')
+  include ../includes/head.jade
+
+////////////////////////////////
+
+#stage
+  .row
+    h1.section-header Video Archives
+
+    - for video in videos
+      .row
+        .small-8.medium-6.columns.end
+          a(href='/video/#{video.slug}'): img(class='headline', src="http://img.youtube.com/vi/#{video.youtubeID}/0.jpg")
+      .row
+        .small-12.columns
+          br
+          h4: a(href='/video/#{video.slug}')= video.title
+      hr
+
+////////////////////////////////
+
+if !req.param('noLayout')
+  include ../includes/footer.jade

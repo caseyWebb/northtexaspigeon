@@ -1,21 +1,22 @@
 <div class="row">
   <img class="headline" ng-src="{{ article.headlineImg.full }}" alt="">
+  
   <h2>{{ article.title }}</h2>
 
-<div class="row">
-  <div class="small-8 columns">
-    <h4 class="subheader">{{ article.description }}</h4>
-    <h6 class="subheader">{{ article.author.name }}</h6>
+  <div class="row">
+    <div class="small-8 columns">
+      <h4 class="subheader">{{ article.description }}</h4>
+      <h6 class="subheader">{{ article.author.name }}</h6>
+    </div>
+    
+    <div class="small-4 columns">
+      <small>
+        <a ui-sref="article.edit({ articleID: article.slug })" class="button tiny">EDIT</a>
+        <button ng-click="delete()" class="tiny alert">DELETE</button>
+      </small>
+    </div>
   </div>
-  
-  <div class="small-4 columns">
-    <small>
-      <a ui-sref="article.edit({ articleID: article.slug })" class="button tiny">EDIT</a>
-      <button ng-click="delete()" class="tiny alert">DELETE</button>
-    </small>
-  </div>
-</div>
-<hr>
+  <hr>
 
-<div ng-bind-html="article.html"></div>
+  <div ng-bind-html="article.html"></div>
 </div>

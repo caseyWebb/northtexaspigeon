@@ -14,7 +14,7 @@ html
     meta(property='og:description', content=description)
     meta(property='og:url', content=req.protocol + '://' + req.get('host') + req.originalUrl)
     meta(property='og:type', content='article')
-    meta(property='og:image', content=headlineImg && headlineImg.full)
+    meta(property='og:image', content=headlineImg ? headlineImg.full : youtubeID ? 'http://img.youtube.com/vi/' + youtubeID + '/0.jpg' : '')
 
 
   body

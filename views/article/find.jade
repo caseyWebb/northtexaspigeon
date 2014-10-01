@@ -11,10 +11,10 @@ if !req.param('noLayout')
     - for article in articles
       .row
         .small-4.medium-2.columns
-          img(src=article.headlineImg.thumb)
+          a(href='/article/#{article.slug}'): img(src=article.headlineImg.thumb)
         .small-8.medium-10.columns
-          h4: a(href='/article/#{article.slug}')= article.title
-          strong.description= article.description
+          a(href='/article/#{article.slug}'): h4= article.title
+          a(href='/article/#{article.slug}'): strong.description= article.description
       hr
 
 ////////////////////////////////

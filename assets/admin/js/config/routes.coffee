@@ -57,5 +57,27 @@ app.config([
         template: JST['/articles/edit.html']()
         controller: 'articleEditCtrl'
 
+    ################ VIDEOS ################
+
+      .state 'video',
+        url: '/admin/video'
+        template: JST['/videos/index.html']()
+        controller: 'videoCtrl'
+
+      .state 'video.new',
+        url: '/new'
+        template: JST['/videos/edit.html']()
+        controller: 'videoEditCtrl'
+
+      .state 'video.show',
+        url: '/:videoID'
+        template: JST['/videos/show.html']()
+        controller: 'videoShowCtrl'
+
+      .state 'video.edit',
+        url: '/:videoID/edit'
+        template: JST['/videos/edit.html']()
+        controller: 'videoEditCtrl'
+
       
 ])

@@ -60,21 +60,21 @@ do ->
   ###
   $(document).on 'click', 'a:not(.admin-link)', (e) ->
     e.preventDefault()
-    navigate(e.target.attributes.href.value)
 
-    if $(e.target).hasClass('nav-link')
+    navigate($(@).attr('href'))
+
+    if $(@).hasClass('nav-link')
       $('.nav-link').removeClass('active')
-      $(e.target).addClass('active')
+      $(@).addClass('active')
 
   ###
   preloads pages after hovering on link for 150ms
   ###
   $(document).on 'mouseenter touchstart', 'a', (e) ->
-    anchor = e.target
     timer = setTimeout ->
-              getPage(anchor.attributes.href.value)
+              getPage($(@).attr('href'))
             , 150
     
-    $(anchor).on 'mouseleave', (e) ->
+    $(@).on 'mouseleave', (e) ->
       if timer
         clearTimeout(timer)

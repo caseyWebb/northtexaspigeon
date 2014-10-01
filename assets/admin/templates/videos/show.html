@@ -1,0 +1,22 @@
+<div class="row">
+
+  <img class="headline" ng-src="{{ 'http://img.youtube.com/vi/' + video.youtubeID + '/0.jpg' }}")/>
+
+  <h2>{{ video.title }}</h2>
+
+  <div class="row">
+    <div class="small-8 columns">
+      <h6 class="subheader">{{ video.poster.name }}</h6>
+    </div>
+    
+    <div class="small-4 columns">
+      <small>
+        <a ui-sref="video.edit({ videoID: video.slug })" class="button tiny">EDIT</a>
+        <button ng-click="delete()" class="tiny alert">DELETE</button>
+      </small>
+    </div>
+  </div>
+  <hr>
+
+  <div ng-bind-html="video.html"></div>
+</div>

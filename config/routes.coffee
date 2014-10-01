@@ -27,7 +27,9 @@ module.exports.routes =
   'GET /join': { view: 'join' }
 
   'GET /category/:category': 'Article.findByCategory'
+  
   'POST /article/:id/comment': 'Article.comment'
+  'POST /video/:id/comment': 'Video.comment'
 
   # passthrough to angular admin panel
   'GET /admin*':
