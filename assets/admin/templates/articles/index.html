@@ -22,8 +22,8 @@
       </li>
 
       <li ng-repeat="_article in articles">
-        <a ng-class="{ active: _article.id === article.id }"
-           ui-sref=".show({ articleID: _article.id })">
+        <a ng-class="{ active: _article.slug === article.slug }"
+           ui-sref=".show({ articleID: _article.slug })">
            {{ _article.title }}
            <small>{{ _article.author.name }}</small>
          </a>

@@ -34,3 +34,5 @@ module.exports.policies =
   ArticleController:
     find: true
     findOne: true
+    findByCategory: true
+    comment: true

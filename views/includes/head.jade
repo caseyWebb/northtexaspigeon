@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title North Texas Pigeon #{title ? ' | ' + title : ''}
+    meta(name='viewport', content='width=device-width, user-scalable=no')
+
+    include ../linker/public/styles
+
+    // grunt is a PITA to make work with fonts, so link them here
+    link(rel="stylesheet", href="/public/fonts/League-Gothic/stylesheet.css")
+        
+    // Facebook OG tags
+    meta(property='og:title', content=title)
+    meta(property='og:description', content=description)
+    meta(property='og:url', content=req.protocol + '://' + req.get('host') + req.originalUrl)
+    meta(property='og:type', content='article')
+    meta(property='og:image', content=headlineImg && headlineImg.full)
+
+
+  body
+
+    include ../includes/header

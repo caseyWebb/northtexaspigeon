@@ -1,0 +1,60 @@
+.title {
+  margin-top: 10px;
+  letter-spacing: 2px;
+}
+
+.description {
+  color: #6f6f6f;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.by-line {
+  color: #6f6f6f;
+  display: block;
+}
+
+.content {
+  margin-top: 30px;
+}
+
+a.hashtag {
+  display: inline-block;
+  padding: 3px 5px;
+  margin: 3px 5px;
+  background-color: #6f6f6f;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+
+  &::after {
+    content: " \f02b";
+    font-family: FontAwesome;
+    font-size: 14px;
+  }
+
+  &:hover {
+    border-bottom: none;
+    background-color: #888;
+    color: white;
+  }
+
+  &.inline {
+    margin: 0px;
+    padding: 0px;
+    font-size: inherit;
+    background-color: inherit;
+    color: inherit;
+    font-weight: inherit;
+    color: #666;
+  }
+
+    &:hover {
+      background-color: #333;
+    }
+}
+
+.fb-comments {
+  margin-bottom: 30px;
+}

@@ -22,6 +22,7 @@ module.exports =
     description:
       type: 'string'
       maxLength: 240
+      required: true
 
     headlineImg:    # holds three values: thumb, feature, full
       type: 'JSON'
@@ -58,6 +59,20 @@ module.exports =
     author:
       type: 'JSON'
       required: true
+
+  findOneByIdentifier: (identifier, cb) ->
+    Article.findOne
+      where:
+        or: [
+          { id: identifier }
+          ,
+          { slug: identifier }
+        ]
+    .exec cb
+
+  logHit: (article) ->
+    article.viewCount++
+    article.save()
 
   beforeValidation: (article, cb) ->
 

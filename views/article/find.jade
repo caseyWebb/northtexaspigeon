@@ -1,0 +1,23 @@
+if !req.param('noLayout')
+  include ../includes/head.jade
+
+////////////////////////////////
+
+#stage
+  .row
+    if req.param('category')
+      h1.section-header= req.param('category') + ' Archives'
+
+    - for article in articles
+      .row
+        .small-4.medium-2.columns
+          img(src=article.headlineImg.thumb)
+        .small-8.medium-10.columns
+          h4: a(href='/article/#{article.slug}')= article.title
+          strong.description= article.description
+      hr
+
+////////////////////////////////
+
+if !req.param('noLayout')
+  include ../includes/footer.jade

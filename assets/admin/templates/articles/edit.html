@@ -28,7 +28,7 @@
       <input type="text" name="title" ng-model="article.title" placeholder="Headline" required ng-maxlength="100">
       <small ng-hide="!articleForm.title.$error.maxlength" class="error">Keep the headline under 100 chars (so we can tweet it with a bit.ly link)</small>
 
-      <input type="text" name="description" ng-model="article.description" placeholder="Subheadline" ng-maxlength="240">
+      <input type="text" name="description" ng-model="article.description" placeholder="Subheadline" required ng-maxlength="240">
       <small ng-hide="!articleForm.description.$error.maxlength" class="error">Are you writing a novel? The subheader is limited to 240 chars.</small>
 
       <div class="row">

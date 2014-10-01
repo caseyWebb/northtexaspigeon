@@ -31,14 +31,14 @@ app
           limit: pageSize
           sort: 'createdAt DESC'
 
-      .success (articles) ->
-        if articles.length < pageSize
+      .success (res) ->
+        if res.articles.length < pageSize
           s.endReached = true
 
         if replace
-          s.articles = articles
+          s.articles = res.articles
         else
-          s.articles = s.articles.concat(articles)
+          s.articles = s.articles.concat(res.articles)
       
       .error (err) ->
         alert(err)
@@ -79,10 +79,10 @@ app
       s.selectArticle()
 
     s.delete = ->
-      http.delete("/article/#{stateParams.articleID}")
+      http.delete("/article/#{s.article.id}")
         .success ->
           toaster.pop('success', 'Article Deleted!')
-          s.$parent.articles = _.reject s.articles, (article) -> return article.id == stateParams.articleID
+          s.$parent.articles = _.reject s.articles, (_article) -> return article.id == _article.id
           state.go('article')
         .error (err) ->
           toaster.pop('error', err)

@@ -16,7 +16,7 @@ app.config([
     ################# USERS ##################
 
       .state 'user',
-        url: '/admin/users'
+        url: '/admin/user'
         template: JST['/users/index.html']()
         controller: 'userCtrl'
 
@@ -38,7 +38,7 @@ app.config([
     ################ ARTICLES ################
 
       .state 'article',
-        url: '/admin/articles'
+        url: '/admin/article'
         template: JST['/articles/index.html']()
         controller: 'articleCtrl'
 

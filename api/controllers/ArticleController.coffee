@@ -5,6 +5,29 @@
 
 module.exports = 
 
+  find: (req, res) ->
+    Article.find
+      sort: 'createdAt DESC'
+      skip: 15 * req.param('page') || 0
+      limit: 15
+    .exec (err, articles) ->
+      return res.serverError(err) if err
+      res.ok({ articles: articles })
+
+  findByCategory: (req, res) ->
+    Article.findByCategory(req.param('category'))
+    .skip(15 * req.param('page') || 0)
+    .limit(15)
+    .exec (err, articles) ->
+      return res.serverError(err) if err
+      res.ok({ articles: articles }, view: 'article/find')
+
+  findOne: (req, res) ->
+    Article.findOneByIdentifier req.param('id'), (err, article) ->
+      return res.serverError(err) if err
+      res.ok(article)
+      Article.logHit(article)
+      
   create: (req, res) ->
     
     # upload images
@@ -56,3 +79,10 @@ module.exports =
         .exec (err, articles) ->
           return res.serverError(err) if err
           res.json(articles[0])
+
+  comment: (req, res) ->
+    Article.findOneByIdentifier req.param('id'), (err, article) ->
+      article.comments++
+      article.save (err, article) ->
+        return res.serverError(err) if err
+        res.ok()

@@ -26,6 +26,9 @@ module.exports.routes =
   'GET /logout': 'Auth.logout'
   'GET /join': { view: 'join' }
 
+  'GET /category/:category': 'Article.findByCategory'
+  'POST /article/:id/comment': 'Article.comment'
+
   # passthrough to angular admin panel
   'GET /admin*':
     view: 'admin'

@@ -1,6 +1,6 @@
 ul.side-nav(ng-controller='navCtrl')
 
-  li: a(ng-class="{ active:isActive('/articles') }", href='/admin/articles')
+  li: a(ng-class="{ active:isActive('/article') }", ui-sref="article")
     .fa.fa-file-text-o
     span Articles
 
@@ -12,7 +12,7 @@ ul.side-nav(ng-controller='navCtrl')
     .fa.fa-video-camera
     span Videos
 
-  li: a(ng-class="{ active:isActive('/profile') }", href='/admin/profile')
+  li: a(ng-class="{ active:isActive('/profile') }", ui-sref='profile')
     .fa.fa-user
     span My Profile
 
@@ -20,7 +20,7 @@ ul.side-nav(ng-controller='navCtrl')
 
     hr
 
-    li: a(ng-class="{ active:isActive('/users') }", href='/admin/users')
+    li: a(ng-class="{ active:isActive('/user') }", ui-sref='user')
       .fa.fa-users
       span Writers
 
