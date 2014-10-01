@@ -20,8 +20,6 @@ app
 
       return if s.endReached
 
-      console.log(s.searchText)
-
       http 
         url: '/video'
         params:

@@ -1,0 +1,38 @@
+if !req.param('noLayout')
+  include ../includes/head.jade
+
+////////////////////////////////
+
+#stage
+  .row
+    .small-12.medium-8.columns
+
+      article
+
+        img(src=image.full)
+
+        h1.title.page-title= title
+
+        - var writtenOn = new Date(createdAt); var month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        em.by-line #{curator.pseudonym} on #{month[writtenOn.getMonth()]} #{writtenOn.getDate()}, #{writtenOn.getFullYear()}
+
+        br
+
+        - for tag in tags
+          a.hashtag(href="/tag/#{tag}")= tag
+
+      hr
+
+      .fb-comments(data-href='#{req.protocol}://#{req.get("host")}/articles/#{slug}', data-width='600')
+
+  if req.session.user
+    #authenticatedUserMessage.show-for-large-up
+      strong Hey there,
+      |  I noticed you're logged in.
+      a.tiny.button.admin-link(href="/admin/picture/#{id}", target='_blank').
+        Click here to open this picture in the admin portal
+
+////////////////////////////////
+
+if !req.param('noLayout')
+  include ../includes/footer.jade

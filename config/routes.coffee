@@ -29,6 +29,7 @@ module.exports.routes =
   'GET /category/:category': 'Article.findByCategory'
   
   'POST /article/:id/comment': 'Article.comment'
+  'POST /picture/:id/comment': 'Picture.comment'
   'POST /video/:id/comment': 'Video.comment'
 
   # passthrough to angular admin panel

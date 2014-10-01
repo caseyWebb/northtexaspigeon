@@ -1,2 +1,3 @@
-module.exports =
-  appName: ''
+module.exports = {
+  'appName': 'NTP'
+}

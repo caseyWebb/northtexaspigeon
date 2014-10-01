@@ -1,0 +1,240 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"show",
+				"showErr"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"ma",
+				"margin-left"
+			],
+			[
+				"sea",
+				"searchBar"
+			],
+			[
+				"ge",
+				"geFriends"
+			],
+			[
+				"s",
+				"s"
+			],
+			[
+				"op",
+				"option	Tag"
+			],
+			[
+				"par",
+				"param"
+			],
+			[
+				"user",
+				"user"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"find",
+				"findOne"
+			],
+			[
+				"Inven",
+				"Inventory"
+			],
+			[
+				"res",
+				"res"
+			],
+			[
+				"data",
+				"database"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/cole/Documents/prog/northtexaspigeon/api/controllers/ArticleController.coffee",
+		"/home/cole/Documents/prog/boiler/views/404.ejs",
+		"/home/cole/Documents/prog/boiler/tasks/pipeline.js",
+		"/home/cole/Documents/prog/boiler/assets/js/dependencies/app.jquery.js",
+		"/home/cole/Documents/prog/boiler/views/user/show.ejs",
+		"/home/cole/Documents/prog/boiler/views/layout.ejs",
+		"/home/cole/Documents/prog/boiler/views/homepage.ejs",
+		"/home/cole/Documents/prog/boiler/assets/js/dependencies/app.angular.search.js",
+		"/home/cole/Documents/prog/boiler/api/controllers/ApiController.js",
+		"/home/cole/Documents/prog/boiler/assets/js/dependencies/app.angular.js",
+		"/home/cole/Documents/prog/boiler/assets/styles/main.css",
+		"/home/cole/Documents/adapt/git/equiserv/api/controllers/CompanyController.js",
+		"/home/cole/Documents/prog/boiler/api/controllers/SessionController.js",
+		"/home/cole/Documents/prog/boiler/api/controllers/UserController.js",
+		"/home/cole/Documents/prog/boiler/api/controllers/PagesController.js",
+		"/home/cole/Documents/prog/boiler/views/hi.html",
+		"/home/cole/Documents/adapt/git/equiserv/views/company/show.ejs",
+		"/home/cole/Documents/prog/boiler/assets/js/dependencies/app.angular.user.js",
+		"/home/cole/Documents/prog/boiler/views/login-home.ejs",
+		"/home/cole/Documents/prog/pregnancy center/preg/api/models/Collection.js",
+		"/home/cole/Documents/prog/boiler/api/models/User.js",
+		"/home/cole/Documents/prog/pregnancy center/preg/api/controllers/StatsController.js",
+		"/home/cole/Documents/adapt/git/equiserv/api/policies/client.js",
+		"/home/cole/Documents/adapt/git/equiserv/api/policies/ext.js",
+		"/home/cole/Documents/adapt/git/equiserv/api/controllers/ExtController.js",
+		"/home/cole/Documents/adapt/git/equiserv/assets/linker/styles/main.css",
+		"/home/cole/Documents/adapt/git/equiserv/views/ext/edit.ejs",
+		"/home/cole/Documents/adapt/git/equiserv/api/policies/aCompany.js",
+		"/home/cole/Documents/adapt/git/equiserv/api/policies/admin.js",
+		"/home/cole/Documents/adapt/git/equiserv/api/policies/authenticated.js",
+		"/home/cole/Documents/adapt/git/equiserv/config/adapters.js",
+		"/home/cole/Documents/adapt/git/equiserv/api/policies/userCanSeeProfile.js",
+		"/home/cole/Documents/adapt/git/equiserv/api/policies/isCompany.js",
+		"/home/cole/Documents/adapt/git/equiserv/api/policies/flash.js",
+		"/home/cole/Documents/adapt/git/equiserv/api/models/Ext.js",
+		"/home/cole/Documents/adapt/equiserv version/v 0.1/config/adapters.js",
+		"/home/cole/Documents/adapt/git/backup/equiserv/config/adapters.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"attributes",
+			"err",
+			"id",
+			".1",
+			"t.data",
+			" >",
+			".val()",
+			"eid",
+			"click",
+			"rdInv",
+			"rInv",
+			"get",
+			"\" Inventory\""
+		],
+		"highlight": true,
+		"in_selection": true,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"info",
+			"\"<span style='color: red'> Inventory</span>\""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

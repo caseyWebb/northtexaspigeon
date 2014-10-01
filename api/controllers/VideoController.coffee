@@ -43,7 +43,7 @@ module.exports =
 
   comment: (req, res) ->
     Video.findOneByIdentifier req.param('id'), (err, video) ->
-      video.comments++
+      video.commentCount++
       video.save (err, vido) ->
         return res.serverError(err) if err
         res.ok()

@@ -1,69 +1,63 @@
- # Article.coffee
+ # Picture.coffee
  #
  # @description :: TODO: You might write a short summary of how this model works and what it represents here.
  # @docs        :: http://sailsjs.org/#!documentation/models
 
 slug    = require 'slug'
-marked  = require 'marked'
 
 module.exports =
-
-  attributes: 
-
+  
+  attributes:
+    
     title:
       type: 'string'
       required: true
       unique: true
       maxLength: 100
 
+    ###
+    holds two values,
+      full: <url to fullsize img>
+      featured: <url to features size img>
+    ###
+    image: 
+      type: 'JSON'
+      required: true
+
     slug:
       type: 'string'
       unique: true
       required: true
 
-    description:
+    ###
+    not displayed anywhere, but used for tagging
+    ###
+    markdown:
       type: 'string'
-      maxLength: 240
-      required: true
-
-    headlineImg:    # holds three values: thumb, feature, full
-      type: 'JSON'
-
-    category:
-      type: 'string'
-      required: true
 
     tags:
       type: 'array'
       array: true
 
-    markdown:
-      type: 'text'
-      required: true
-
-    html:
-      type: 'text'
-      required: true
+    commentCount: 
+      type: 'integer'
+      defaultsTo: 0
 
     viewCount:
       type: 'integer'
       defaultsTo: 0
 
-    commentCount:
-      type: 'integer'
-      defaultsTo: 0
-
     ###
     We embed the author in the document so we can use one db query.
-    When writers change their information, we search for articles
+    When writers change their information, we search for pics
     with the author's id to update the embedded info.
     ###
-    author:
+    curator:
       type: 'JSON'
       required: true
 
   findOneByIdentifier: (identifier, cb) ->
-    Article.findOne
+    Picture.findOne
       where:
         or: [
           { id: identifier }
@@ -72,25 +66,18 @@ module.exports =
         ]
     .exec cb
 
-  logHit: (article) ->
-    article.viewCount++
-    article.save()
+  logHit: (picture) ->
+    picture.viewCount++
+    picture.save()
 
-  beforeValidation: (article, cb) ->
+  beforeValidation: (picture, cb) ->
 
     # slug-ify title for URL
-    article.slug = slug(article.title).replace(/"/g, '')
+    picture.slug = slug(picture.title).replace(/"/g, '')
 
-    # hashtag article
-    Formatter.hashtag article.markdown, (taggedMD, tags) ->
-      article.tags = _.map tags, (tag) ->
+    # hashtag pic
+    Formatter.hashtag picture.markdown, (taggedMD, tags) ->
+      picture.tags = _.map tags, (tag) ->
                         tag.substring(1).toLowerCase()              
-
-      # markdown
-      renderer = new marked.Renderer()
-      renderer.heading = (text) ->
-        return text
-
-      article.html = marked(taggedMD, renderer: renderer)
 
       cb()

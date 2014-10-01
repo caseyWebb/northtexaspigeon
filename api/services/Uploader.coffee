@@ -44,40 +44,61 @@ module.exports =
 
   forArticles: (articleTitle) ->
 
-    receiver  = new Writable { objectMode: true}
+    receiver  = new Writable { objectMode: true }
     receiver._write = (img, enc, cb) ->
 
       articleFolder = "#{uploadsFolder}/articles/#{slug(articleTitle)}"
       mkdirp articleFolder, (err) ->
-        return cb(err) if err
+        return cb(err) if err?
 
         if (img.filename.indexOf('headlineImg') == 0)
-          outThumbLocation    = "#{articleFolder}/thumb-#{img.filename}"
-          outFeatureLocation  = "#{articleFolder}/feature-#{img.filename}"
-          outFullLocation     = "#{articleFolder}/#{img.filename}"
 
           img.fd =
             thumb:   "#{sails.config.uploads.url}/articles/#{slug(articleTitle)}/thumb-#{img.filename}"
             feature: "#{sails.config.uploads.url}/articles/#{slug(articleTitle)}/feature-#{img.filename}"
             full:    "#{sails.config.uploads.url}/articles/#{slug(articleTitle)}/#{img.filename}"
 
-          thumbStream     = fs.createWriteStream(outThumbLocation)
-          featuredStream  = fs.createWriteStream(outFeatureLocation)
-          fullSizeStream  = fs.createWriteStream(outFullLocation)
+          thumbStream     = fs.createWriteStream("#{articleFolder}/thumb-#{img.filename}")
+          featuredStream  = fs.createWriteStream("#{articleFolder}/feature-#{img.filename}")
+          fullSizeStream  = fs.createWriteStream("#{articleFolder}/#{img.filename}")
 
           gm(img).resize(150, 100).quality(40).stream().pipe(thumbStream)
           gm(img).resize(400, 250).quality(60).stream().pipe(featuredStream)
-          gm(img).resize(600, 400).quality(80).stream().pipe(fullSizeStream)
+          gm(img).resize(600, 400).quality(70).stream().pipe(fullSizeStream)
 
         else
-          outLocation = "#{articleFolder}/#{img.filename}"
 
           img.fd = "#{sails.config.uploads.url}/articles/#{slug(articleTitle)}/#{img.filename}"
           
-          outStream = fs.createWriteStream(outLocation)
+          outStream = fs.createWriteStream("#{articleFolder}/#{img.filename}")
           
           gm(img).resize(400, 400).quality(60).stream().pipe(outStream)
         
+        cb()
+
+    return receiver
+
+
+  forPictures: (pictureTitle) ->
+
+    receiver = new Writable { objectMode: true }
+    receiver._write = (img, enc, cb) ->
+
+      pictureFolder = "#{uploadsFolder}/pictures/#{slug(pictureTitle)}"
+      mkdirp pictureFolder, (err) ->
+        return cb(err) if err?
+
+        img.fd =
+          feature: "#{sails.config.uploads.url}/pictures/#{slug(pictureTitle)}/feature-#{img.filename}"
+          full:    "#{sails.config.uploads.url}/pictures/#{slug(pictureTitle)}/#{img.filename}"
+
+        featuredStream  = fs.createWriteStream("#{pictureFolder}/feature-#{img.filename}")
+        fullSizeStream  = fs.createWriteStream("#{pictureFolder}/#{img.filename}")
+
+        gm(img).resize(220, 220).quality(50).stream().pipe(featuredStream)
+        gm(img).resize(600, 400).quality(70).stream().pipe(fullSizeStream)
+
+
         cb()
 
     return receiver

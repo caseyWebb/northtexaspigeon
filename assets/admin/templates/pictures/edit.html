@@ -1,0 +1,60 @@
+<div class="row">
+
+  <div class="medium-6 columns">
+
+    <!-- headline image -->
+
+    <div ng-if="!picture.image" class="file-dropzone panel text-center"
+        ng-file-select="setImage($files)"
+        ng-file-drop="setImage($files)"
+        ng-file-drag-over-class="callout">
+
+      <small>Drop image here, or click to open dialog</small>
+    </div>
+
+    <div ng-if="picture.image" class="overlay-container"
+        ng-file-select="setImage($files)"
+        ng-file-drop="setImage($files)"
+        ng-file-drag-over-class="dropping">
+
+      <div class="overlay drop-message">Click here or drop a new image to change</div>
+
+      <img class="headline-img" ng-src="{{ picture.image.dataUrl || picture.image.full }}">
+    </div>
+
+    <!-- form -->
+
+    <form novalidate name="pictureForm">
+      <input type="text" name="title" ng-model="picture.title" placeholder="Headline" required ng-maxlength="100">
+      <small ng-hide="!pictureForm.title.$error.maxlength" class="error">Keep the headline under 100 chars (so we can tweet it with a bit.ly link)</small>
+
+      <textarea id="article-input"
+        context-menu
+        msd-elastic
+        ng-model="picture.markdown"
+        placeholder="use this area to hashtag your image"
+        required>
+      </textarea>
+    </form>
+
+  </div>
+
+  <!-- image preview -->
+  
+  <div class="medium-6 columns">
+    <h3 ng-if="!picture.title">Headline</h3>
+    <h3>{{ picture.title }}</h3>
+
+    <h6 ng-if='!picture.markdown'>
+      A preview of your hashtags will appear here
+    </h6>
+    <div preview-article="picture.markdown" class="preview"></div>
+  
+    <!-- publish button -->
+
+    <button class="publish-btn tiny" ng-click="publish()" ng-disabled="picture.$invalid || !picture.image">
+      {{ publishing ? 'PUBLISHING...' : 'PUBLISH' }}
+    </button>
+  </div>
+
+</div>

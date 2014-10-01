@@ -1,0 +1,37 @@
+<div class="row container">
+  <div class="medium-4 columns scrollable container"
+       ng-class='isEditing ? "collapse" : "medium-4"'
+       infinite-scroll="getPictures()">
+
+    <ul class="index">
+
+      <li>
+        <a ui-sref=".new()">
+          <span class="fa fa-plus"></span>
+          New Picture
+        </a>
+      </li>
+
+      <hr>
+
+      <li>
+        <input  type="text"
+                placeholder="Search..."
+                ng-model="searchText"
+                ng-change="getPictures(true)">
+      </li>
+
+      <li ng-repeat="_picture in pictures">
+        <a ng-class="{ active: _picture.slug === picture.slug }"
+           ui-sref=".show({ pictureID: _picture.slug })">
+           {{ _picture.title }}
+           <small>{{ _picture.curator.name }}</small>
+         </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <div ui-view class="columns" ng-class='isEditing ? "medium-12" : "medium-8"'></div>
+</div>
