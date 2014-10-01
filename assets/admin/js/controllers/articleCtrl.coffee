@@ -29,6 +29,7 @@ app
               contains: s.searchText || ''
           skip: s.counter++ * pageSize
           limit: pageSize
+          sort: 'createdAt DESC'
 
       .success (articles) ->
         if articles.length < pageSize

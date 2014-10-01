@@ -30,6 +30,7 @@ app
               contains: s.searchText || ''
           skip: s.counter++ * pageSize
           limit: pageSize
+          sort: 'name ASC'
 
       .success (users) ->
         if users.length < pageSize
