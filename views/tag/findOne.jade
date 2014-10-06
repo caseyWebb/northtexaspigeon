@@ -1,0 +1,53 @@
+if !req.param('noLayout')
+  include ../includes/head.jade
+
+////////////////////////////////
+
+#stage
+  .row
+      - if (news[0])
+        .medium-5.large-5.columns
+          #LatestNews
+            h1.section-header News
+            - for article in news
+              .row
+                img.small-4.columns(src='#{article.headlineImg.thumb}')
+                .small-8.columns
+                  h4: a(href='/article/#{article.slug}')= article.title
+                  span.description= article.description
+
+      - if (columns[0] || videos[0])
+        .medium-4.large-4.columns.end
+          - if (columns[0])
+            #Columns
+              h1.section-header Columns
+              img(src='#{columns[0].headlineImg.thumb}')
+              - for article in columns
+                .row
+                  img.small-4.columns(src='#{article.headlineImg.thumb}')
+                  .small-8.columns
+                    h4: a(href='/article/#{article.slug}')= article.title
+                    span.description= article.description
+
+          - if (videos[0])
+            #Videos
+              h1.section-header Videos
+              img(src='http://img.youtube.com/vi/#{videos[0].youtubeID}/0.jpg')
+              - for video in videos
+                  h4: a(href='/video/#{video.slug}')= video.title
+
+    .row
+      - if (pictures[0])
+        #Pictures
+          h1.section-header Pictures
+          - for picture in pictures
+            .medium-3.large-3.columns
+              a(href='/picture/#{picture.slug}')
+                img(src='#{picture.image.feature}')
+                h4: a(href='/picture/#{picture.slug}')= picture.title
+
+
+////////////////////////////////
+
+if !req.param('noLayout')
+  include ../includes/footer.jade

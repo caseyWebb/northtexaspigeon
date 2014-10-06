@@ -27,6 +27,9 @@ module.exports.routes =
   'GET /join': { view: 'join' }
 
   'GET /category/:category': 'Article.findByCategory'
+
+  'GET /tag': 'Tag.find'
+  'GET /tag/:tag': 'Tag.findOne'
   
   'POST /article/:id/comment': 'Article.comment'
   'POST /picture/:id/comment': 'Picture.comment'

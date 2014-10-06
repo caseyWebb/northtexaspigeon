@@ -1,0 +1,16 @@
+if !req.param('noLayout')
+  include ../includes/head.jade
+
+////////////////////////////////
+
+#stage
+  .row
+    .medium-8.large-9.columns
+      - for tag in tags
+        a.hashtag(href='/tag/#{tag}')= tag
+
+
+////////////////////////////////
+
+if !req.param('noLayout')
+  include ../includes/footer.jade
