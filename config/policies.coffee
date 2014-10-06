@@ -37,7 +37,18 @@ module.exports.policies =
     findByCategory: true
     comment: true
 
+  PictureController:
+    find: true
+    findOne: true
+    comment: true
+
   VideoController:
     find: true
     findOne: true
     comment: true
+
+  TagController:
+    find: true
+    findOne: true
+
+  HomepageController: true

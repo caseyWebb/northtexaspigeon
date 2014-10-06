@@ -70,6 +70,12 @@ module.exports =
     picture.viewCount++
     picture.save()
 
+  latest: (cb) ->
+    Picture.find
+      sort: createdAt: 'DESC'
+      limit: 4
+    .exec cb
+
   beforeValidation: (picture, cb) ->
 
     # slug-ify title for URL

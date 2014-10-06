@@ -22,6 +22,8 @@ http://sailsjs.org/#/documentation/concepts/Routes/RouteTargetSyntax.html
 
 module.exports.routes =
 
+  'GET /': 'Homepage.homepage'
+
   'GET /login': { view: 'login' }
   'GET /logout': 'Auth.logout'
   'GET /join': { view: 'join' }

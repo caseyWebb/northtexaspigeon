@@ -76,6 +76,44 @@ module.exports =
     article.viewCount++
     article.save()
 
+  homepageContent: (cb) ->
+    
+    async.parallel [
+
+      (resolve) ->
+        Article.find
+          where: category: 'news'
+          sort: createdAt: 'DESC'
+          limit: 8
+        .exec (err, articles) ->
+          return resolve(err) if err?
+        
+          articles = _.sortBy(articles, ['viewCount'])
+          trending = articles.splice(0, 4)
+      
+          articles = _.sortBy(articles, ['createdAt'])
+          latest = articles
+            
+          resolve null,
+            trending: trending
+            latest: latest
+
+      (resolve) ->
+        Article.find
+          where: category: 'columns'
+          sort: createdAt: 'DESC'
+          limit: 8
+        .exec (err, articles) ->
+          return resolve(err) if err?
+          resolve null, _.sortBy(articles, ['viewCount'])
+
+      ], (err, results) ->
+        return cb(err) if err?
+
+        cb null,
+          news: results[0]
+          columns: results[1]
+
   beforeValidation: (article, cb) ->
 
     # slug-ify title for URL

@@ -74,6 +74,14 @@ module.exports =
     video.viewCount++
     video.save()
 
+  latest: (cb) ->
+    Video.find
+      sort: createdAt: 'DESC'
+      limit: 4
+    .exec (err, videos) ->
+      videos = _.sortBy(videos, 'viewCount')
+      cb(err, videos)
+
   beforeValidation: (video, cb) ->
 
     # slug-ify title for URL

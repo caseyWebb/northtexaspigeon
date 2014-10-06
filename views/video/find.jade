@@ -14,7 +14,7 @@ if !req.param('noLayout')
       .row
         .small-12.columns
           br
-          h4: a(href='/video/#{video.slug}')= video.title
+          a(href='/video/#{video.slug}'): h4= video.title
       hr
 
 ////////////////////////////////

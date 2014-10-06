@@ -13,7 +13,8 @@
 var publicCSSFilesToInject = [
   
   'bower_components/foundation/css/normalize.css',
-  'bower_components/foundation/css/foundation.css',  
+  'bower_components/foundation/css/foundation.css',
+  'bower_components/font-awesome/css/font-awesome.css',
 
   'public/styles/**/*.css',
   'shared/styles/**/*.css'

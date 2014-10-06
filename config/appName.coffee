@@ -1,3 +1,3 @@
 module.exports = {
-  'appName': 'NTP'
+  'appName': "Denton's Most Libel News Source"
 }
