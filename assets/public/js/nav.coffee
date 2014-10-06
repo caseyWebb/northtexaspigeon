@@ -59,13 +59,11 @@ do ->
   appropriate page
   ###
   $(document).on 'click', 'a:not(.admin-link)', (e) ->
-    e.preventDefault()
+    
+    if (!$(@).attr('target'))
+      e.preventDefault()
 
-    navigate($(@).attr('href'))
-
-    if $(@).hasClass('nav-link')
-      $('.nav-link').removeClass('active')
-      $(@).addClass('active')
+      navigate($(@).attr('href'))
 
   ###
   preloads pages after hovering on link for 150ms
