@@ -1,0 +1,42 @@
+if !req.param('noLayout')
+  include includes/head.jade
+
+////////////////////////////////
+
+#stage
+  .row
+
+    h1 The super short version
+
+    p: strong lmao.
+
+
+    h1 The short version
+
+    h3.subheader This is a joke
+
+    p: em.
+      The stories and information posted here are artistic works of
+      fiction and falsehood. Only a fool would take anything posted here
+      as fact.
+
+    h1 The long version
+
+    p.
+      The North Texas Pigeon is a satirical / comedy publication
+      written by University of North Texas students for the
+      purpose of entertainment. It is not to be taken seriously &mdash;
+      not a word of it. The North Texas Pigeon is not intended for
+      audiences under the age of 18. The contents of this website in
+      their entirety are copywritten and not to be reprinted or
+      redistributed in whole or part without attribution and linkbacks.
+
+    p.
+      Except when satirizing public figures, all names are created and
+      ficticious. Any correlation between people living or dead is
+      is entirely coinciedental.
+
+////////////////////////////////
+
+if !req.param('noLayout')
+  include includes/footer.jade

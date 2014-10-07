@@ -1,0 +1,44 @@
+if !req.param('noLayout')
+  include includes/head.jade
+
+////////////////////////////////
+
+#stage
+  .row
+    
+    .small-12.columns
+      h1 Contact us
+
+    .medium-4.columns.text-center
+      h4.subheader Problems with the site?
+      a(href='mailto:problem@northtexaspigeon.com') problem@NorthTexasPigeon.com
+    
+    .medium-4.columns.text-center
+      h4.subheader Hatemail?
+      a(href='mailto:hate@northtexaspigeon.com') hate@NorthTexasPigeon.com
+    
+    .medium-4.columns.text-center
+      h4.subheader Love?
+      a(href='mailto:love@northtexaspigeon.com') love@NorthTexasPigeon.com
+      br
+      small: strong.
+        Want to write for the Pigeon? Send us something! If it's
+        funny, we'll post it.
+  br
+  br
+  br
+
+  .row
+    
+    .small-12.columns
+      strong.
+        By sending us an email (that is, to any address ending
+        in @NorthTexasPigeon.com), you acknowledge we have the
+        right to use its contents without fear of repercussion.
+        We will never use your name (unless you tell us we can).
+
+
+////////////////////////////////
+
+if !req.param('noLayout')
+  include includes/footer.jade

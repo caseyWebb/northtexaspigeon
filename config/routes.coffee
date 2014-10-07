@@ -27,6 +27,8 @@ module.exports.routes =
   'GET /login': { view: 'login' }
   'GET /logout': 'Auth.logout'
   'GET /join': { view: 'join' }
+  'GET /disclaimer': { view: 'disclaimer' }
+  'GET /contact': { view: 'contact' }
 
   'GET /category/:category': 'Article.findByCategory'
 
