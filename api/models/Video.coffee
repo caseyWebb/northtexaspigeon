@@ -100,3 +100,7 @@ module.exports =
       video.html = marked(taggedMD, renderer: renderer)
 
       cb()
+
+  afterCreate: (article, cb) ->
+    Sitemap.submit()
+    cb()

@@ -6,6 +6,7 @@
   "keywords": [],
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
+    "coffee-script": "~1.8.0",
     "connect-redis": "~1.5.0",
     "ejs": "~0.8.4",
     "gm": "^1.16.0",
@@ -39,8 +40,8 @@
     "sails-disk": "~0.10.0",
     "sails-mongo": "^0.10.4",
     "sails-redis": "^0.10.3",
-    "slug": "^0.7.1",
-    "coffee-script": "~1.8.0"
+    "sitemap": "^0.7.4",
+    "slug": "^0.7.1"
   },
   "scripts": {
     "start": "node app.js",

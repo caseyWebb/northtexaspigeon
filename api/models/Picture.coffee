@@ -87,3 +87,7 @@ module.exports =
                         tag.substring(1).toLowerCase()              
 
       cb()
+
+  afterCreate: (article, cb) ->
+    Sitemap.submit()
+    cb()

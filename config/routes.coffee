@@ -30,6 +30,8 @@ module.exports.routes =
   'GET /disclaimer': { view: 'disclaimer' }
   'GET /contact': { view: 'contact' }
 
+  'GET /sitemap.xml': 'Sitemap.sitemap'
+
   'GET /category/:category': 'Article.findByCategory'
 
   'GET /tag': 'Tag.find'
