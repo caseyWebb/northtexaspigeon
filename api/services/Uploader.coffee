@@ -102,3 +102,26 @@ module.exports =
         cb()
 
     return receiver
+
+
+  forAds: (adName) ->
+
+    receiver = new Writable { objectMode: true }
+    receiver._write = (img, enc, cb) ->
+
+      adFolder = "#{uploadsFolder}/ads/#{slug(adName)}"
+      mkdirp adFolder, (err) ->
+        return cb(err) if err?
+
+        img.fd = "#{sails.config.uploads.url}/ads/#{slug(adName)}/#{img.filename}"
+        stream = fs.createWriteStream("#{adFolder}/#{img.filename}")
+
+        switch img.filename.split('.')[0]
+
+          when 'horizontal' then gm(img).resize(600, 150).quality(50).stream().pipe(stream)
+          when 'mobile' then gm(img).resize(300, 150).quality(50).stream().pipe(stream)
+          when 'vertical' then gm(img).resize(150, 600).quality(50).stream().pipe(stream)
+
+        cb()
+
+    return receiver

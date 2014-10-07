@@ -12,7 +12,7 @@ module.exports =
       type: 'string'
       required: true
 
-  beforeValidate: (token, cb) ->
+  beforeValidation: (token, cb) ->
     require('crypto').randomBytes 48, (ex, buf) ->
       token.value = buf.toString('hex')
       cb()

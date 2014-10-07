@@ -51,4 +51,9 @@ module.exports.policies =
     find: true
     findOne: true
 
+  AdvertisementController:
+    find: true
+    create: 'isAdmin'
+    update: 'isAdmin'
+
   HomepageController: true

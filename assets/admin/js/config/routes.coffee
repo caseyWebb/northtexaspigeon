@@ -101,5 +101,27 @@ app.config([
         template: JST['/videos/edit.html']()
         controller: 'videoEditCtrl'
 
+    ################## ADS ##################
+
+      .state 'ad',
+        url: '/admin/ad'
+        template: JST['/ads/index.html']()
+        controller: 'adCtrl'
+
+      .state 'ad.new',
+        url: '/new'
+        template: JST['/ads/edit.html']()
+        controller: 'adEditCtrl'
+
+      .state 'ad.show',
+        url: '/:adID'
+        template: JST['/ads/show.html']()
+        controller: 'adShowCtrl'
+
+      .state 'ad.edit',
+        url: '/:adID/edit'
+        template: JST['/ads/edit.html']()
+        controller: 'adEditCtrl'
+
       
 ])

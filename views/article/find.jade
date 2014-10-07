@@ -5,18 +5,21 @@ if !req.param('noLayout')
 
 #stage
   .row
-    if req.param('category')
-      h1.section-header= req.param('category') + ' Archives'
+    .medium-8.large-10.columns
+      if req.param('category')
+        h1.section-header= req.param('category') + ' Archives'
 
-    - for article in articles
-      .row
-        .small-4.medium-2.columns
-          a(href='/article/#{article.slug}'): img(src=article.headlineImg.thumb)
-        .small-8.medium-10.columns
-          a(href='/article/#{article.slug}'): h4= article.title
-          a(href='/article/#{article.slug}'): strong.description= article.description
-      hr
+      - for article in articles
+        .row
+          .small-4.medium-2.columns
+            a(href='/article/#{article.slug}'): img(src=article.headlineImg.thumb)
+          .small-8.medium-10.columns
+            a(href='/article/#{article.slug}'): h4= article.title
+            a(href='/article/#{article.slug}'): strong.description= article.description
+        hr
 
+    .medium-4.large-2.columns
+      #vertical-nav.show-for-medium-up
 ////////////////////////////////
 
 if !req.param('noLayout')

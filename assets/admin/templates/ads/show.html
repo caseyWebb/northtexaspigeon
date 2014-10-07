@@ -1,0 +1,30 @@
+<div class="row">
+
+  <div class="small-12 columns">
+    <h2>{{ ad.name }}</h2>
+    <h4 class="subheader">Expires {{ ad.expiresOn | amCalendar }}</h4>
+  </div>
+
+  <div class="small-12 columns">
+    <small>
+      <a ui-sref="ad.edit({ adID: ad.id })" class="button tiny">EDIT</a>
+      <button ng-click="delete()" class="tiny alert">DELETE</button>
+    </small>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="small-3 columns">
+    <img class="vertical-ad" ng-src="{{ ad.images.vertical }}" alt="">
+  </div>  
+
+  <div class="small-9 columns">
+
+    <img class="mobile-ad" ng-src="{{ ad.images.mobile }}" alt="">
+    <img class="horizontal-ad" ng-src="{{ ad.images.horizontal }}" alt="">
+
+  </div>
+
+</div>

@@ -1,0 +1,92 @@
+<div class="row">
+
+  <div class="small-12 columns">
+
+    <!-- images -->
+
+    <div class="row">
+      
+      <div class="medium-3 columns">
+
+        <div ng-if="!images.vertical && !ad.images.horizontal" class="vertical-ad file-dropzone panel text-center"
+            ng-file-select="setImage($files, 'vertical')"
+            ng-file-drop="setImage($files, 'vertical')"
+            ng-file-drag-over-class="callout">
+          <small>Drop vertical banner (150x600) image here, or click to open dialog</small>
+        </div>
+
+        <div ng-if="images.vertical || ad.images.horizontal" class="overlay-container"
+            ng-file-select="setImage($files, 'vertical')"
+            ng-file-drop="setImage($files, 'vertical')"
+            ng-file-drag-over-class="dropping">
+
+          <img class="vertical-ad" ng-src="{{ images.vertical.dataUrl || ad.images.vertical }}">
+        </div>
+
+      </div>
+
+      <div class="medium-9 columns">
+
+        <div class="row">
+
+          <div ng-if="!images.mobile && !ad.images.horizontal" class="mobile-ad file-dropzone panel text-center"
+              ng-file-select="setImage($files, 'mobile')"
+              ng-file-drop="setImage($files, 'mobile')"
+              ng-file-drag-over-class="callout">
+            <small>Drop mobile image (300x150) here, or click to open dialog</small>
+          </div>
+
+          <div ng-if="images.mobile || ad.images.mobile" class="overlay-container"
+              ng-file-select="setImage($files, 'mobile')"
+              ng-file-drop="setImage($files, 'mobile')"
+              ng-file-drag-over-class="dropping">
+
+            <img class="mobile-ad" ng-src="{{ images.mobile.dataUrl || ad.images.mobile }}">
+          </div>
+
+          <br>
+
+          <div ng-if="!images.horizontal && !ad.images.horizontal" class="horizontal-ad file-dropzone panel text-center"
+              ng-file-select="setImage($files, 'horizontal')"
+              ng-file-drop="setImage($files, 'horizontal')"
+              ng-file-drag-over-class="callout">
+            <small>Drop horizontal banner image (600x150) here, or click to open dialog</small>
+          </div>
+
+          <div ng-if="images.horizontal || ad.images.horizontal" class="horizontal-ad overlay-container"
+              ng-file-select="setImage($files, 'horizontal')"
+              ng-file-drop="setImage($files, 'horizontal')"
+              ng-file-drag-over-class="dropping">
+
+            <img class="horizontal-ad" ng-src="{{ images.horizontal.dataUrl || ad.images.horizontal }}">
+          </div>
+
+          <br>
+
+          <!-- form -->
+
+          <form novalidate name="adForm">
+            <input type="text" name="name" ng-model="ad.name" placeholder="Name" required ng-maxlength="100">
+            <small ng-hide="!ad.name.$error.maxlength" class="error">Keep the name under 100 chars</small>
+
+            <input type="text" name="name" ng-model="ad.mobileLink" placeholder="Mobile Link" required>
+
+            <input type="text" name="name" ng-model="ad.desktopLink" placeholder="Desktop Link" required>
+
+            <input type="number" name="runLength" ng-model="ad.runLength" placeholder="Days to run" required>
+
+            <button class="publish-btn tiny" ng-click="publish()" ng-disabled="adForm.$invalid">
+              {{ publishing ? 'PUBLISHING...' : 'PUBLISH' }}
+            </button>
+            
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

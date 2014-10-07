@@ -24,7 +24,7 @@ ul.side-nav(ng-controller='navCtrl')
       .fa.fa-users
       span Writers
 
-    li: a
+    li: a(ng-class="{ active:isActive('/ad') }", ui-sref='ad')
       .fa.fa-credit-card
       span Ads
 

@@ -61,6 +61,8 @@ var adminJSFilesToInject = [
   'bower_components/ng-context-menu/dist/ng-context-menu.js',
   'bower_components/ng-file-upload/angular-file-upload.js',
   'bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js',
+  'bower_components/moment/moment.js',
+  'bower_components/angular-moment/angular-moment.js',
 
   'admin/js/**/*.js',
   'shared/js/**/*.js'

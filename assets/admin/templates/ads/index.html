@@ -1,0 +1,29 @@
+<div class="row container">
+  <div class="medium-4 columns scrollable container"
+       ng-class='isEditing ? "collapse" : "medium-4"'>
+
+    <ul class="index">
+
+      <li>
+        <a ui-sref=".new()">
+          <span class="fa fa-plus"></span>
+          New Ad
+        </a>
+      </li>
+
+      <hr>
+
+      <li ng-repeat="_ad in ads">
+        <a ng-class="{ active: _ad.id === ad.id }"
+           ui-sref=".show({ adID: _ad.id })">
+           {{ _ad.name }}
+           <small>Expires {{ _ad.expiresOn | amCalendar }}</small>
+         </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <div ui-view class="columns" ng-class='isEditing ? "medium-12" : "medium-8"'></div>
+</div>

@@ -5,10 +5,13 @@ if !req.param('noLayout')
 
 #stage
   .row
-    .medium-8.large-9.columns
+
+    .medium-8.large-10.columns
       - for tag in tags
         a.hashtag(href='/tag/#{tag}')= tag
 
+    .medium-4.large-2.columns
+      #vertical-ad.show-for-medium-up
 
 ////////////////////////////////
 
