@@ -11,27 +11,15 @@ module.exports = Email =
 
     params =
       from: sails.config.email.from
+      to: recipients.join(', ')
       subject: subject
       html: message
 
     transporter = nodemailer.createTransport(smtpPool(sails.config.email.transportOptions))
 
-    responseDigest = []
-    sendResIfReady = _.after recipients.length, ->
+    transporter.sendMail params, (err, res) ->
       transporter.close()
-      cb(responseDigest)
-
-    addToDigest = (res) ->
-      responseDigest.push(res)
-      sendResIfReady()
-
-    for recipient in recipients
-      params.to = recipient
-      transporter.sendMail params, (err, res) ->
-        digestMessage =
-          recipient: recipient
-          status: if err then err else res
-        addToDigest(digestMessage)
+      cb(res)
 
   getTemplate: (templateName, cb) ->
     fs.readFile "#{__dirname}/../../views/emails/#{templateName}.html", 'utf8', (err, html) ->
