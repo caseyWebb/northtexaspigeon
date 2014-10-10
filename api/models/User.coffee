@@ -42,7 +42,7 @@ module.exports =
      delete user.password
      return user
 
-  afterValidattion: (user, cb) ->
+  afterValidation: (user, cb) ->
     if (user.password?) 
       bcrypt.genSalt 10, (err, salt) ->
         bcrypt.hash user.password, salt, null, (err, hash) ->
