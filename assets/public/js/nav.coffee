@@ -59,20 +59,23 @@ do ->
   appropriate page
   ###
   $(document).on 'click', 'a:not(.admin-link)', (e) ->
-    
-    if (!$(@).attr('target'))
+    $el = $(@)
+
+    if (!$el.attr('target'))
       e.preventDefault()
 
-      navigate($(@).attr('href'))
+      navigate($el.attr('href'))
 
   ###
   preloads pages after hovering on link for 150ms
   ###
   $(document).on 'mouseenter touchstart', 'a', (e) ->
+    $el = $(@)
+
     timer = setTimeout ->
-              getPage($(@).attr('href'))
+              getPage($el.attr('href'))
             , 150
     
-    $(@).on 'mouseleave', (e) ->
+    $el.on 'mouseleave', (e) ->
       if timer
         clearTimeout(timer)
