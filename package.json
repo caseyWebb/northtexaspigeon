@@ -6,8 +6,8 @@
   "keywords": [],
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
-    "coffee-script": "~1.8.0",
-    "connect-redis": "~1.5.0",
+    "coffee-script": "^1.8.0",
+    "connect-redis": "^1.4.5",
     "ejs": "~0.8.4",
     "gm": "^1.16.0",
     "grunt": "0.4.2",
