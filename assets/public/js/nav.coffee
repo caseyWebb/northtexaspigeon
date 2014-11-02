@@ -49,11 +49,11 @@ do ->
   appropriate page
   ###
   $(document).on 'click', 'a:not(.admin-link)', (e) ->
-    $el = $(@)
+    url = $(@).attr('href')
 
-    if (!$el.attr('target'))
+    if (!$(@).attr('target'))
       e.preventDefault()
-      History.pushState(url:$el.attr('href'), 'North Texas Pigeon', $el.attr('href'))
+      History.pushState(url:url, 'North Texas Pigeon', url)
 
   ###
   preloads pages after hovering on link for 150ms
