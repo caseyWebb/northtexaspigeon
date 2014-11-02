@@ -2,7 +2,7 @@
 This module contains the receivers for uploading and resizing images.
 You will need graphicsmagick installed on your system.
 
-The upload location isn't configurable, and will require you to set it
+The upload location is configurable, and will require you to set it
 up to serve assets at the url provided in local.coffee -> uploads -> url.
 Not having the static server won't break anything; you'll still be able
 to test image uploads by looking in the uploads folder but you'll have no
@@ -38,7 +38,7 @@ Writable      = require('stream').Writable
 fs            = require 'fs'
 mkdirp        = require 'mkdirp'
 slug          = require 'slug'
-uploadsFolder = "#{__dirname}/../../uploads"
+uploadsFolder = sails.config.uploads.folder
 
 module.exports = 
 

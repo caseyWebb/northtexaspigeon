@@ -77,7 +77,7 @@ app
       http.delete("/video/#{s.video.id}")
         .success ->
           toaster.pop('success', 'Video Deleted!')
-          s.$parent.videos = _.reject s.videos, (_video) -> return video.id == _video.id
+          s.$parent.videos = _.reject s.videos, (video) -> return s.video.id == video.id
           state.go('video')
         .error (err) ->
           toaster.pop('error', err)

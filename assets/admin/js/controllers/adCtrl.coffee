@@ -58,7 +58,7 @@ app
       http.delete("/advertisement/#{s.ad.id}")
         .success ->
           toaster.pop('success', 'Ad Deleted!')
-          s.$parent.ads = _.reject s.ads, (_ad) -> return ad.id == _ad.id
+          s.$parent.ads = _.reject s.ads, (ad) -> return s.ad.id == ad.id
           state.go('ad')
         .error (err) ->
           toaster.pop('error', err)

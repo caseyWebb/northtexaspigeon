@@ -77,7 +77,7 @@ app
       http.delete("/picture/#{s.picture.id}")
         .success ->
           toaster.pop('success', 'Picture Deleted!')
-          s.$parent.pictures = _.reject s.pictures, (_picture) -> return picture.id == _picture.id
+          s.$parent.pictures = _.reject s.pictures, (picture) -> return s.picture.id == picture.id
           state.go('picture')
         .error (err) ->
           toaster.pop('error', err)

@@ -77,7 +77,7 @@ app
       http.delete("/article/#{s.article.id}")
         .success ->
           toaster.pop('success', 'Article Deleted!')
-          s.$parent.articles = _.reject s.articles, (_article) -> return article.id == _article.id
+          s.$parent.articles = _.reject s.articles, (article) -> return s.article.id == article.id
           state.go('article')
         .error (err) ->
           toaster.pop('error', err)

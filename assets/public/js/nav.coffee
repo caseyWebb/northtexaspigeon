@@ -35,24 +35,14 @@ do ->
     else
       document.title = "North Texas Pigeon"
 
-  ###
-  navigate(url)
-
-  performs navigation and everything that goes along
-  with it
-  ###
-  navigate = (url) ->
-    setPage(url)
-    history.pushState(url, 'North Texas Pigeon', url)
-
     FB.XFBML.parse()
     ga('send', 'pageview')
 
   ###
-  load correct page on browser navigation (back button)
+  load correct page on statechange
   ###
-  $(window).on 'popstate', (e) ->
-    $('#stage').replaceWith(getPage(e.originalEvent.state))
+  History.Adapter.bind window, 'statechange', ->
+    setPage(History.getState().data.url)
 
   ###
   intercepts anchor clicks and navigates to the
@@ -63,8 +53,7 @@ do ->
 
     if (!$el.attr('target'))
       e.preventDefault()
-
-      navigate($el.attr('href'))
+      History.pushState(url:$el.attr('href'), 'North Texas Pigeon', $el.attr('href'))
 
   ###
   preloads pages after hovering on link for 150ms

@@ -42,4 +42,4 @@ module.exports = Sitemap =
 
   submit: ->
     http.get "www.google.com/webmasters/tools/ping?sitemap=#{encodeURIComponent('http://northtexaspigon.com/sitemap.xml')}", (res) ->
-      sails.log "Sitemap submitted to Google, #{res}"
+      sails.log.info "#{Date().toString()}: sitemap submitted to Google"

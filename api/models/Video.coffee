@@ -76,7 +76,7 @@ module.exports =
 
   latest: (cb) ->
     Video.find
-      sort: createdAt: 'DESC'
+      sort: 'createdAt DESC'
       limit: 4
     .exec (err, videos) ->
       videos = _.sortBy(videos, 'viewCount')

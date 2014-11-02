@@ -36,8 +36,8 @@ var adminCSSFilesToInject = [
 var publicJSFilesToInject = [
 
   'bower_components/jquery/dist/jquery.js',
-  'bower_components/lodash/dist/lodash.js',
   'bower_components/fastclick/lib/fastclick.js',
+  'bower_components/history.js/scripts/bundled/html4+html5/jquery.history.js',
   
   'public/js/**/*.js',
   'shared/js/**/*.js'

@@ -83,7 +83,7 @@ module.exports =
       (resolve) ->
         Article.find
           where: category: 'news'
-          sort: createdAt: 'DESC'
+          sort: 'createdAt DESC'
           limit: 8
         .exec (err, articles) ->
           return resolve(err) if err?
@@ -101,7 +101,7 @@ module.exports =
       (resolve) ->
         Article.find
           where: category: 'columns'
-          sort: createdAt: 'DESC'
+          sort: 'createdAt DESC'
           limit: 8
         .exec (err, articles) ->
           return resolve(err) if err?

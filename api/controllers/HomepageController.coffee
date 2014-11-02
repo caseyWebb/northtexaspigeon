@@ -27,7 +27,7 @@ module.exports =
       content = results[0]
       content.pictures = results[1]
       content.videos = results[2]
-      content.tags = results[3]
+      content.tags = _.sample(results[3], 30)
 
       res.ok(content, 'homepage')
         

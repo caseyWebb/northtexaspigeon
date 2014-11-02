@@ -72,7 +72,7 @@ module.exports =
 
   latest: (cb) ->
     Picture.find
-      sort: createdAt: 'DESC'
+      sort: 'createdAt DESC'
       limit: 4
     .exec cb
 

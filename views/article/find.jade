@@ -12,7 +12,8 @@ if !req.param('noLayout')
       - for article in articles
         .row
           .small-4.medium-2.columns
-            a(href='/article/#{article.slug}'): img(src=article.headlineImg.thumb)
+            if (article.headlineImg)
+              a(href='/article/#{article.slug}'): img(src=article.headlineImg.thumb)
           .small-8.medium-10.columns
             a(href='/article/#{article.slug}'): h4= article.title
             a(href='/article/#{article.slug}'): strong.description= article.description
