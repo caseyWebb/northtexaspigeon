@@ -35,14 +35,14 @@ module.exports =
         .exec (err, thread) ->
           return res.serverError(err) if err?
 
-        Email.create
-          html: mailinMsg.html
-          text: mailinMsg.text
-          attachments: attachments
-          thread: thread
-        .exec (err, email) ->
-          return res.serverError(err) if err?
-          res.ok()
+          Email.create
+            html: mailinMsg.html
+            text: mailinMsg.text
+            attachments: attachments
+            thread: thread
+          .exec (err, email) ->
+            return res.serverError(err) if err?
+            res.ok()
 
   unread: (req, res) ->
     Email.findByRead(false).exec (err, unreadCount) ->
