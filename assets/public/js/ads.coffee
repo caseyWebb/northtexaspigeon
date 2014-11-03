@@ -5,6 +5,7 @@ do ->
   getAds = (next) ->
     $.get '/advertisement', (_ads) ->
       ads = _ads
+      alert(ads)
       next()
 
   changeAds = ->
@@ -16,7 +17,7 @@ do ->
     @index = ++@index % ads.length
 
     topAd = ads[@index]
-    sideAd = ads[(@index + (ads.length / 2)) % ads.length]
+    sideAd = ads[Math.floor((@index + (ads.length / 2)) % ads.length)]
 
     $('#vertical-ad').html """
       <a href="#{sideAd.desktopLink}" target="_blank">
