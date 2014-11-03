@@ -14,7 +14,7 @@ module.exports =
         cb(null, { fileName: attachment.fileName, file: req.param(attachment.fileName) })
       (err, attachments) ->
 
-        box = switch mailinMsg.from[0].split('@')[0].toLowerCase()
+        box = switch mailinMsg.to[0].address.split('@')[0].toLowerCase()
           when 'love' then 'kudos'
           when 'hate' then 'hatemail'
           when 'advertiseonthe' then 'advertisers'
