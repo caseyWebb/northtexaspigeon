@@ -5,7 +5,6 @@ do ->
   getAds = (next) ->
     $.get '/advertisement', (_ads) ->
       ads = _ads
-      alert(ads)
       next()
 
   changeAds = ->
