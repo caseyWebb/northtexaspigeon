@@ -11,7 +11,7 @@ module.exports =
 
     async.map mailinMsg.attachments || [],
       (attachment, cb) ->
-        cb(null, { fileName: attachment.fileName file: req.param(attachment.fileName) })
+        cb(null, { fileName: attachment.fileName, file: req.param(attachment.fileName) })
       (err, attachments) ->
         console.log attachments
         res.send(attachments)
