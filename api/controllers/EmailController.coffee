@@ -18,6 +18,10 @@ module.exports =
           when 'love' then 'kudos'
           when 'hate' then 'hatemail'
           when 'advertiseonthe' then 'advertisers'
+          else 'reject'
+
+        if box == 'reject'
+          return res.forbidden('Invalid recipient')
 
         Email.create
           html: mailinMsg.html

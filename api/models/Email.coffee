@@ -14,7 +14,7 @@ module.exports =
       type: 'text'
 
     from:
-      type: 'string'
+      type: 'JSON'
       required: true
 
     mailbox:
