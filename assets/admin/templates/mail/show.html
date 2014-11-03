@@ -1,0 +1,28 @@
+<div class="row">
+
+  <div class="small-12 columns"
+       ng-repeat="message in thread.emails"
+       ng-class="{ 'text-right' : !message.inbound }">
+
+    <small class="subheader">
+      {{ message.createdAt | date:'MM/dd/yyyy @ h:mma'}}
+    </small>
+
+    <p ng-bind-html="message.html" ng-if="message.html && message.html != ''"></p>
+    <p ng-if="!message.html || message.html == ''">{{ message.text }}</p>
+
+    <hr>
+  </div>
+
+  <textarea
+    msd-elastic
+    ng-model="reply"
+    placeholder="reply...">
+  </textarea>
+  <button class="tiny" ng-disabled="reply.length == 0" ng-click="sendReply()">
+    REPLY
+  </button>
+  <button class="tiny alert" ng-click="delete()">
+    DELETE CONVERSATION
+  </button>
+</div>

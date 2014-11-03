@@ -123,5 +123,17 @@ app.config([
         template: JST['/ads/edit.html']()
         controller: 'adEditCtrl'
 
+    ################## MAIL #################
+
+      .state 'mail',
+        url: '/admin/mail'
+        template: JST['/mail/index.html']()
+        controller: 'mailCtrl'
+
+      .state 'mail.show',
+        url: '/:threadID'
+        template: JST['/mail/show.html']()
+        controller: 'threadCtrl'
+
       
 ])

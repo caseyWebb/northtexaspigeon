@@ -5,4 +5,21 @@
 
 module.exports =
 
-  attributes: {}
+  attributes:
+
+    inbound:
+      type: 'boolean'
+
+    html:
+      type: 'text'
+
+    text:
+      type: 'text'
+
+    attachments:
+      type: 'array'
+      defaultsTo: []
+
+    thread: {
+      model: 'emailThread'
+    }

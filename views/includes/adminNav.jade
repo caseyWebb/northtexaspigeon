@@ -28,6 +28,14 @@ ul.side-nav(ng-controller='navCtrl')
       .fa.fa-credit-card
       span Ads
 
+    li: a(ng-class="{ active:isActive('/mail') }", ui-sref='mail')
+      div
+        .fa.fa-envelope
+        span Mail
+      .round.label(ng-if="unreadEmailCounts.kudos > 0") {{ unreadEmailCounts.kudos }}
+      .round.alert.label(ng-if="unreadEmailCounts.hatemail > 0") {{ unreadEmailCounts.hatemail }}
+      .round.success.label(ng-if="unreadEmailCounts.advertisers > 0") {{ unreadEmailCounts.advertisers }}
+
   hr
 
   li: small: a
