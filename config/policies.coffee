@@ -57,3 +57,8 @@ module.exports.policies =
     update: 'isAdmin'
 
   HomepageController: true
+
+  EmailController:
+    create: true
+
+    
