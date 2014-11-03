@@ -5,4 +5,22 @@
 
 module.exports =
 
-  attributes: {}
+  attributes:
+
+    html:
+      type: 'text'
+
+    text:
+      type: 'text'
+
+    from:
+      type: 'string'
+      required: true
+
+    mailbox:
+      type: 'string'
+      required: true
+
+    attachments:
+      type: 'array'
+

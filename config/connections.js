@@ -40,5 +40,12 @@ module.exports.connections = {
     // user: 'username',
     // password: 'password',
     // database: 'your_mongo_db_name_here'
+  },
+
+  emailAttachments: {
+    adapter: 'sails-mongo'
+
+    // same deal as the other. don't change this here...
+    // uri: 'mongodb://@localhost:27017/dbname.email_attachments'
   }
 };
