@@ -8,14 +8,14 @@
       
       <div class="medium-3 columns">
 
-        <div ng-if="!images.vertical && !ad.images.horizontal" class="vertical-ad file-dropzone panel text-center"
+        <div ng-if="!images.vertical && !ad.images.vertical" class="vertical-ad file-dropzone panel text-center"
             ng-file-select="setImage($files, 'vertical')"
             ng-file-drop="setImage($files, 'vertical')"
             ng-file-drag-over-class="callout">
           <small>Drop vertical banner (150x600) image here, or click to open dialog</small>
         </div>
 
-        <div ng-if="images.vertical || ad.images.horizontal" class="overlay-container"
+        <div ng-if="images.vertical || ad.images.vertical" class="overlay-container"
             ng-file-select="setImage($files, 'vertical')"
             ng-file-drop="setImage($files, 'vertical')"
             ng-file-drag-over-class="dropping">
@@ -29,7 +29,7 @@
 
         <div class="row">
 
-          <div ng-if="!images.mobile && !ad.images.horizontal" class="mobile-ad file-dropzone panel text-center"
+          <div ng-if="!images.mobile && !ad.images.mobile" class="mobile-ad file-dropzone panel text-center"
               ng-file-select="setImage($files, 'mobile')"
               ng-file-drop="setImage($files, 'mobile')"
               ng-file-drag-over-class="callout">
