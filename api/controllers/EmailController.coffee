@@ -28,10 +28,11 @@ module.exports =
         EmailThread.findOrCreate
           mailbox: box
           theirEmail: mailinMsg.from[0].address
-          ,
+        ,
           mailbox: box
           theirEmail: mailinMsg.from[0].address
           theirName: mailinMsg.from[0].name
+          
         .exec (err, thread) ->
           return res.serverError(err) if err?
 
