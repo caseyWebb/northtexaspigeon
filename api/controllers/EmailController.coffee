@@ -7,7 +7,7 @@ module.exports =
 
   create: (req, res) ->
 
-    mailinMsg = req.param('mailinMsg')
+    mailinMsg = JSON.parse(req.param('mailinMsg'))
 
     async.map mailinMsg.attachments || [],
       (attachment, cb) ->
