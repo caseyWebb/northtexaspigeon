@@ -13,6 +13,18 @@ module.exports =
       (attachment, cb) ->
         cb(null, { fileName: attachment.fileName, file: req.param(attachment.fileName) })
       (err, attachments) ->
-        console.log attachments
-        res.send(attachments)
 
+        box = switch mailinMsg.from[0].split('@')[0].toLowerCase()
+          when 'love' then 'kudos'
+          when 'hate' then 'hatemail'
+          when 'advertiseonthe' then 'advertisers'
+
+        Email.create
+          html: mailinMsg.html
+          text: mailinMsg.text
+          from: mailinMsg.from[0]
+          mailbox: box
+          attachments: attachments
+        .exec (err, email) ->
+          return res.serverError(err) if err?
+          res.ok()
