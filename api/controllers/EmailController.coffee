@@ -9,14 +9,10 @@ module.exports =
 
     mailinMsg = req.param('mailinMsg')
 
-    async.map mailinMsg.attachments || [],
-      (attachment, cb) ->
-        console.log attachment.fileName
-        req.file(attachment.fileName).upload
-          adapter: require('skipper-gridfs')
-          uri: sails.config.connections.emailAttachments.uri
-        , cb
-      (err, attachments) ->
-        console.log attachments
-        res.send(attachments)
+    req.file(mailinMsg.attachments).upload
+      adapter: require('skipper-gridfs')
+      uri: sails.config.connections.emailAttachments.uri
+    , (err, attachments) ->
+      console.log attachments
+      res.send(attachments)
 
