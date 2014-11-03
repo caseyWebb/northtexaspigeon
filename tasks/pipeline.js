@@ -14,7 +14,6 @@ var publicCSSFilesToInject = [
   
   'bower_components/foundation/css/normalize.css',
   'bower_components/foundation/css/foundation.css',
-  'bower_components/font-awesome/css/font-awesome.css',
 
   'public/styles/**/*.css',
   'shared/styles/**/*.css'
@@ -24,7 +23,6 @@ var adminCSSFilesToInject = [
 
   'bower_components/foundation/css/normalize.css',
   'bower_components/foundation/css/foundation.css',
-  'bower_components/font-awesome/css/font-awesome.css',
   'bower_components/animate.css/animate.css',
 
   'admin/styles/**/*.css',
