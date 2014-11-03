@@ -13,14 +13,13 @@ module.exports =
     text:
       type: 'text'
 
-    from:
-      type: 'JSON'
-      required: true
-
-    mailbox:
-      type: 'string'
-      required: true
-
     attachments:
       type: 'array'
 
+    read:
+      type: 'boolean'
+      defaultsTo: false
+
+    thread: {
+      model: 'emailThread'
+    }

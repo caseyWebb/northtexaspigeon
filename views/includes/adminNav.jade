@@ -28,6 +28,10 @@ ul.side-nav(ng-controller='navCtrl')
       .fa.fa-credit-card
       span Ads
 
+    li: a(ng-class="{ active:isActive('/email') }", ui-sref='email')
+      .fa.fa-envelope
+      span Mail
+
   hr
 
   li: small: a

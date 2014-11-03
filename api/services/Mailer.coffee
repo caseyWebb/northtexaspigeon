@@ -10,7 +10,7 @@ module.exports = Email =
   send: (subject, message, recipients, cb) ->
 
     params =
-      from: sails.config.email.from
+      from: 'North Texas Pigeon <mailer@northtexaspigeon.com>'
       to: recipients.join(', ')
       subject: subject
       html: message
