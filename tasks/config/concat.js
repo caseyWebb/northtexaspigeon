@@ -13,6 +13,9 @@
 module.exports = function(grunt) {
 
 	grunt.config.set('concat', {
+		options: {
+			separator: ';'
+		},
 		publicJS: {
 			src: require('../pipeline').publicJSFilesToInject,
 			dest: '.tmp/public/concat/productionPublic.js'
