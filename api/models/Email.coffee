@@ -16,10 +16,6 @@ module.exports =
     attachments:
       type: 'array'
 
-    read:
-      type: 'boolean'
-      defaultsTo: false
-
     thread: {
       model: 'emailThread'
     }

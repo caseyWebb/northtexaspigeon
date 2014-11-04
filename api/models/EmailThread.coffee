@@ -21,3 +21,6 @@ module.exports =
     emails:
       collection: 'email'
       via: 'thread'
+
+    readBy:
+      collection: 'user'

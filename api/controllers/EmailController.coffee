@@ -53,8 +53,8 @@ module.exports =
     async.each mailboxes,
 
       (box, next) ->
-        Email.count
-          read: false
+        EmailThread.count
+          readBy: { '!': req.session.user }
           mailbox: box
         .exec (err, unreadCount) ->
           unreadCounts[box] = unreadCount
