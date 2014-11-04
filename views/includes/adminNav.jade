@@ -32,7 +32,6 @@ ul.side-nav(ng-controller='navCtrl')
       .fa.fa-envelope
       span Mail
       br
-      |&nbsp;
       .round.label(ng-if="unreadEmailCounts.kudos > 0") {{ unreadEmailCounts.kudos }}
       |&nbsp;
       .round.alert.label(ng-if="unreadEmailCounts.hatemail > 0") {{ unreadEmailCounts.hatemail }}
