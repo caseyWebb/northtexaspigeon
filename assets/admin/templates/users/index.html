@@ -19,7 +19,7 @@
                 ng-change="getUsers(true)">
       </li>
 
-      <li class="user" ng-repeat="_user in users">
+      <li class="user" ng-repeat="_user in users | orderBy:'isDisabled'">
         <a ng-class="{ active: _user.id === user.id, disabled: _user.isDisabled }"
            ui-sref=".show({ userID: _user.id })">
            {{ _user.name }}
