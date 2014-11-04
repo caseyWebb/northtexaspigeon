@@ -7,6 +7,9 @@ module.exports =
 
   attributes:
 
+    inbound:
+      type: 'boolean'
+
     html:
       type: 'text'
 

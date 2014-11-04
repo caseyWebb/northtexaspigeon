@@ -37,6 +37,7 @@ module.exports =
           return res.serverError(err) if err?
 
           Email.create
+            inbound: true
             html: mailinMsg.html
             text: mailinMsg.text
             attachments: attachments
@@ -44,6 +45,9 @@ module.exports =
           .exec (err, email) ->
             return res.serverError(err) if err?
             res.ok()
+
+          thread.readBy = []
+          thread.save()
 
   unread: (req, res) ->
 
