@@ -1,0 +1,28 @@
+<div class="row container">
+  <div class="medium-4 columns scrollable container">
+
+    <ul class="index">
+
+      <li>
+        <a ui-sref=".new()">
+          <span class="fa fa-plus"></span>
+          Compose Message
+        </a>
+      </li>
+
+      <hr>
+
+      <li class="thread" ng-repeat="_thread in threads" ng-class="_thread.mailbox">
+        <a ng-class="{ active: _thread.id === thread.id }"
+           ui-sref=".show({ threadID: _thread.id })">
+           {{ _thread.theirName }}
+           <small>{{ _thread.theirEmail }}</small>
+         </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <div ui-view class="medium-8 columns"></div>
+</div>

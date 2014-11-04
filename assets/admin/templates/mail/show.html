@@ -1,0 +1,9 @@
+<div class="row">
+
+  <div class="small-12 columns" ng-repeat="message in thread.emails">
+    <small>{{ message.createdAt | date:'MM/dd/yyyy @ h:mma'}}</small>
+    <p>{{ message.text }}</p>
+    <hr>
+  </div>
+
+</div>
