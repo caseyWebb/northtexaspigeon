@@ -23,4 +23,4 @@ module.exports =
       via: 'thread'
 
     readBy:
-      collection: 'user'
+      type: 'array'
