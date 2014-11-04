@@ -7,10 +7,10 @@ handlebars    = require 'handlebars'
 
 module.exports = Email = 
   
-  send: (subject, message, recipients, cb) ->
+  send: (subject, message, recipients, sendAs, cb) ->
 
     params =
-      from: 'North Texas Pigeon <mailer@northtexaspigeon.com>'
+      from: "North Texas Pigeon <#{sendAs}@northtexaspigeon.com>"
       to: recipients.join(', ')
       subject: subject
       html: message
@@ -19,7 +19,7 @@ module.exports = Email =
 
     transporter.sendMail params, (err, res) ->
       transporter.close()
-      cb(res)
+      cb(err, res)
 
   getTemplate: (templateName, cb) ->
     fs.readFile "#{__dirname}/../../views/emails/#{templateName}.html", 'utf8', (err, html) ->

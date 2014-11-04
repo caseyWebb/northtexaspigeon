@@ -3,20 +3,12 @@
 
     <ul class="index">
 
-      <li>
-        <a ui-sref=".new()">
-          <span class="fa fa-plus"></span>
-          Compose Message
-        </a>
-      </li>
-
-      <hr>
-
       <li class="thread" ng-repeat="_thread in threads" ng-class="_thread.mailbox">
         <a ng-class="{ active: _thread.id === thread.id }"
            ui-sref=".show({ threadID: _thread.id })">
            {{ _thread.theirName }}
            <small>{{ _thread.theirEmail }}</small>
+           <span class="round label" ng-if="_thread.unread">New message(s)!</span>
          </a>
       </li>
 

@@ -18,6 +18,7 @@ module.exports =
 
     attachments:
       type: 'array'
+      defaultsTo: []
 
     thread: {
       model: 'emailThread'

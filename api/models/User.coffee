@@ -61,8 +61,8 @@ module.exports =
         SignupToken.create().exec (err, token) ->
           return cb(err) if err?
 
-          Mailer.send 'Welcome to the Pigeon!', template({ email: email, token: token.value }), [email], (digest) ->
-            cb(null, digest)
+          Mailer.send 'Welcome to the Pigeon!', template({ email: email, token: token.value }), [email], 'no-reply', (err, digest) ->
+            cb(err, digest)
 
   resetPassword: (userEmail, cb) ->
     User.findOneByEmail(userEmail).exec (err, user) ->
@@ -79,5 +79,5 @@ module.exports =
           Mailer.getTemplate 'forgotPassword', (err, template) ->
             return cb(err) if err?
 
-            Mailer.send 'Password Reset', template({ password: newPass }), [user.email], (digest) ->
-              cb(null, digest)
+            Mailer.send 'Password Reset', template({ password: newPass }), [user.email], 'no-reply', (err, digest) ->
+              cb(err, digest)

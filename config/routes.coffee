@@ -41,6 +41,8 @@ module.exports.routes =
   'POST /picture/:id/comment': 'Picture.comment'
   'POST /video/:id/comment': 'Video.comment'
 
+  'POST /emailthread/:threadID/reply': 'EmailThread.reply'
+
   # passthrough to angular admin panel
   'GET /admin*':
     view: 'admin'
