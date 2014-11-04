@@ -46,6 +46,6 @@ module.exports =
             res.ok()
 
   unread: (req, res) ->
-    Email.findByRead(false).exec (err, unreadCount) ->
+    Email.countByRead(false).exec (err, unreadCount) ->
       return res.serverError(err) if err?
       res.ok(unreadCount)
