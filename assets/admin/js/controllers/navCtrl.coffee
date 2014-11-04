@@ -6,6 +6,6 @@ app.controller 'navCtrl',
       location.path().indexOf('/admin' + route) == 0
 
     http.get('/email/unread')
-      .success (unreadCount) ->
-        s.unreadEmailCount = unreadCount
+      .success (unreadCounts) ->
+        s.unreadEmailCounts = unreadCounts
 ]
