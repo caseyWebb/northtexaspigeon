@@ -24,3 +24,4 @@ module.exports =
 
     readBy:
       type: 'array'
+      defaultsTo: []

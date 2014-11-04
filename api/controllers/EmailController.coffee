@@ -54,7 +54,7 @@ module.exports =
 
       (box, next) ->
         EmailThread.count
-          readBy: { '!': req.session.user.id }
+          readBy: { '!': [req.session.user.id] }
           mailbox: box
         .exec (err, unreadCount) ->
           unreadCounts[box] = unreadCount
