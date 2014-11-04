@@ -7,4 +7,5 @@ app.controller 'navCtrl',
 
     http.get '/email/unread', (unreadCount) ->
       s.unreadEmailCount = unreadCount
+      alert unreadCount
 ]
