@@ -48,4 +48,4 @@ module.exports =
   unread: (req, res) ->
     Email.countByRead(false).exec (err, unreadCount) ->
       return res.serverError(err) if err?
-      res.ok(unreadCount)
+      res.json(unreadCount)
