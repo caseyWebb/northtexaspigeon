@@ -1,8 +1,9 @@
 <div class="row">
 
   <div class="small-12 columns" ng-repeat="message in thread.emails">
-    <small>{{ message.createdAt | date:'MM/dd/yyyy @ h:mma'}}</small>
-    <p>{{ message.text }}</p>
+    <small class="subheader">{{ message.createdAt | date:'MM/dd/yyyy @ h:mma'}}</small>
+    <p ng-bind-html="message.html" ng-if="message.html && message.html != ''"></p>
+    <p ng-if="!message.html || message.html == ''">{{ message.text }}</p>
     <hr>
   </div>
 

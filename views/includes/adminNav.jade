@@ -31,6 +31,7 @@ ul.side-nav(ng-controller='navCtrl')
     li: a(ng-class="{ active:isActive('/email') }", ui-sref='mail')
       .fa.fa-envelope
       span Mail
+      br
       |&nbsp;
       .round.label(ng-if="unreadEmailCounts.kudos > 0") {{ unreadEmailCounts.kudos }}
       |&nbsp;
