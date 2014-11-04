@@ -46,6 +46,23 @@ module.exports =
             res.ok()
 
   unread: (req, res) ->
-    Email.countByRead(false).exec (err, unreadCount) ->
-      return res.serverError(err) if err?
-      res.json(unreadCount)
+
+    mailboxes = ['kudos', 'hatemail', 'advertisers']
+    unreadCounts = {}
+
+    async.each mailboxes,
+
+      (box, next) ->
+        Email.count
+          read: false
+          mailbox: box
+        .exec (err, unreadCount) ->
+          unreadCounts[box] = unreadCount
+          next(err)
+
+      (err) ->
+        return res.serverError(err) if err?
+        res.json(unreadCounts)
+
+
+
