@@ -13,4 +13,4 @@ module.exports =
   findOne: (req, res) ->
     Tag.findContentFor req.param('tag'), (err, content) ->
       return res.serverError(err) if err?
-      res.ok(content)
+      res.ok(content, 'tag/findOne')

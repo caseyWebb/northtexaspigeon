@@ -34,8 +34,8 @@ module.exports.routes =
 
   'GET /category/:category': 'Article.findByCategory'
 
-  'GET /tag': 'Tag.find'
-  'GET /tag/:tag': 'Tag.findOne'
+  'GET /tag': 'TagController.find'
+  'GET /tag/:tag': 'TagController.findOne'
   
   'POST /article/:id/comment': 'Article.comment'
   'POST /picture/:id/comment': 'Picture.comment'
