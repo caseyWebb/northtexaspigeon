@@ -66,13 +66,14 @@ app
 
 
     s.delete = ->
-      http.delete("/emailthread/#{s.thread.id}")
-        .success ->
-          toaster.pop('success', 'Conversation Deleted!')
-          s.$parent.threads = _.reject s.threads, (thread) -> return s.thread.id == thread.id
-          state.go('mail')
-        .error (err) ->
-          toaster.pop('error', err)
+      if window.confirm("Are you sure you want to delete this?")
+        http.delete("/emailthread/#{s.thread.id}")
+          .success ->
+            toaster.pop('success', 'Conversation Deleted!')
+            s.$parent.threads = _.reject s.threads, (thread) -> return s.thread.id == thread.id
+            state.go('mail')
+          .error (err) ->
+            toaster.pop('error', err)
 ]
 
 

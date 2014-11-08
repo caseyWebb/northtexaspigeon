@@ -55,13 +55,14 @@ app
       s.selectAd()
 
     s.delete = ->
-      http.delete("/advertisement/#{s.ad.id}")
-        .success ->
-          toaster.pop('success', 'Ad Deleted!')
-          s.$parent.ads = _.reject s.ads, (ad) -> return s.ad.id == ad.id
-          state.go('ad')
-        .error (err) ->
-          toaster.pop('error', err)
+      if window.confirm("Are you sure you want to delete this?")
+        http.delete("/advertisement/#{s.ad.id}")
+          .success ->
+            toaster.pop('success', 'Ad Deleted!')
+            s.$parent.ads = _.reject s.ads, (ad) -> return s.ad.id == ad.id
+            state.go('ad')
+          .error (err) ->
+            toaster.pop('error', err)
 ]
 
 ##################### NEW / EDIT ########################

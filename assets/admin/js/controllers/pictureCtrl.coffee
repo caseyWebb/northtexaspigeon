@@ -74,13 +74,14 @@ app
       s.selectPicture()
 
     s.delete = ->
-      http.delete("/picture/#{s.picture.id}")
-        .success ->
-          toaster.pop('success', 'Picture Deleted!')
-          s.$parent.pictures = _.reject s.pictures, (picture) -> return s.picture.id == picture.id
-          state.go('picture')
-        .error (err) ->
-          toaster.pop('error', err)
+      if window.confirm("Are you sure you want to delete this?")
+        http.delete("/picture/#{s.picture.id}")
+          .success ->
+            toaster.pop('success', 'Picture Deleted!')
+            s.$parent.pictures = _.reject s.pictures, (picture) -> return s.picture.id == picture.id
+            state.go('picture')
+          .error (err) ->
+            toaster.pop('error', err)
 ]
 
 ##################### NEW / EDIT ########################

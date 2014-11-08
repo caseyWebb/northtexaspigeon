@@ -74,13 +74,14 @@ app
       s.selectArticle()
 
     s.delete = ->
-      http.delete("/article/#{s.article.id}")
-        .success ->
-          toaster.pop('success', 'Article Deleted!')
-          s.$parent.articles = _.reject s.articles, (article) -> return s.article.id == article.id
-          state.go('article')
-        .error (err) ->
-          toaster.pop('error', err)
+      if window.confirm("Are you sure you want to delete this?")
+        http.delete("/article/#{s.article.id}")
+          .success ->
+            toaster.pop('success', 'Article Deleted!')
+            s.$parent.articles = _.reject s.articles, (article) -> return s.article.id == article.id
+            state.go('article')
+          .error (err) ->
+            toaster.pop('error', err)
 ]
 
 ##################### NEW / EDIT ########################

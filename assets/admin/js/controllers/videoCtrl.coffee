@@ -74,13 +74,14 @@ app
       s.selectVideo()
 
     s.delete = ->
-      http.delete("/video/#{s.video.id}")
-        .success ->
-          toaster.pop('success', 'Video Deleted!')
-          s.$parent.videos = _.reject s.videos, (video) -> return s.video.id == video.id
-          state.go('video')
-        .error (err) ->
-          toaster.pop('error', err)
+      if window.confirm("Are you sure you want to delete this?")
+        http.delete("/video/#{s.video.id}")
+          .success ->
+            toaster.pop('success', 'Video Deleted!')
+            s.$parent.videos = _.reject s.videos, (video) -> return s.video.id == video.id
+            state.go('video')
+          .error (err) ->
+            toaster.pop('error', err)
 ]
 
 ##################### NEW / EDIT ########################
