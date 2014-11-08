@@ -8,7 +8,8 @@ if !req.param('noLayout')
 
     .medium-8.large-10.columns
 
-      h1.section-header Video Archives
+      if !req.param('page')
+        h1.section-header Video Archives
 
       - for video in videos
         .row

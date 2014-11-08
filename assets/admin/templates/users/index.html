@@ -1,6 +1,6 @@
 <div class="row container">
   <div class="medium-4 columns scrollable container">
-    <ul class="index" infinite-scroll="getUsers()">
+    <ul class="index">
       
       <li>
         <a ng-class="{ active: user === 'invite' }"
@@ -15,11 +15,10 @@
       <li>
         <input  type="text"
                 placeholder="Search..."
-                ng-model="searchText"
-                ng-change="getUsers(true)">
+                ng-model="searchText">
       </li>
 
-      <li class="user" ng-repeat="_user in users | orderBy:'isDisabled'">
+      <li class="user" ng-repeat="_user in users | filter:searchText | orderBy: ['isDisabled', 'name']">
         <a ng-class="{ active: _user.id === user.id, disabled: _user.isDisabled }"
            ui-sref=".show({ userID: _user.id })">
            {{ _user.name }}

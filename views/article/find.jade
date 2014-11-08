@@ -6,7 +6,7 @@ if !req.param('noLayout')
 #stage
   .row
     .medium-8.large-10.columns
-      if req.param('category')
+      if req.param('category') && !req.param('page')
         h1.section-header= req.param('category') + ' Archives'
 
       - for article in articles

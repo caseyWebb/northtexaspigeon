@@ -1,4 +1,2 @@
-do ->
-  
-  $ ->
-    FastClick.attach(document.body)
+$ ->
+  FastClick.attach(document.body)

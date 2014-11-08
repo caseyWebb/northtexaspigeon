@@ -21,6 +21,7 @@ module.exports =
   findByCategory: (req, res) ->
     Article.findByCategory(req.param('category'))
     .skip(15 * req.param('page') || 0)
+    .sort('createdAt DESC')
     .limit(15)
     .exec (err, articles) ->
       return res.serverError(err) if err

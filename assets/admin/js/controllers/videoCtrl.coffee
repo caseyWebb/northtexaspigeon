@@ -12,23 +12,23 @@ app
     ### functions ###
 
     s.getVideos = _.throttle (replace) ->
-      s.currentPage ?= 0
+      @currentPage ?= 0
 
       if replace
-        s.currentPage = 0
-        s.endReached = false
+        @currentPage = 0
+        @endReached = false
 
-      return if s.endReached
+      return if @endReached
 
       http 
         url: '/video'
         params:
-          page: s.currentPage
+          page: @currentPage++
           searchText: s.searchText
 
-      .success (res) ->
+      .success (res) =>
         if res.videos.length < 15
-          s.endReached = true
+          @endReached = true
 
         if replace
           s.videos = res.videos

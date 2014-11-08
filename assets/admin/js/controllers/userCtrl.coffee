@@ -12,40 +12,15 @@ app
 
     ### functions ###
 
-    s.getUsers = _.throttle (replace) ->
-      s.counter ?= 0
-      pageSize = 15
+    s.getUsers = ->
 
-      if replace
-        s.counter = 0
-        s.endReached = false
-
-      return if s.endReached
-
-      http 
-        url: '/user'
-        params:
-          where:
-            name:
-              contains: s.searchText || ''
-          skip: s.counter++ * pageSize
-          limit: pageSize
-          sort: 'name ASC'
-
-      .success (users) ->
-        if users.length < pageSize
-          s.endReached = true
-
-        if replace
-          s.users = users
-        else
-          s.users = s.users.concat(users)
+      http.get('/user')
       
-      .error (err) ->
-        alert(err)
-
-    , 300
-
+        .success (users) ->
+          s.users = users
+      
+        .error (err) ->
+          alert(err)
 
     s.selectUser = (userID) ->
       if !userID
