@@ -10,7 +10,7 @@ do ->
                                   '/picture',
                                   '/video']
     
-    return if pagesWithInfiniteScrolling.indexOf(url) < 0
+    return if pagesWithInfiniteScrolling.indexOf(@url) < 0
 
     $(window).on 'scroll.infinite', =>
 
@@ -57,6 +57,7 @@ do ->
 
   # page change
   History.Adapter.bind window, 'statechange', ->
+    $(window).off('scroll.infinite')
     registerListenerIfApplicable()
 
   
