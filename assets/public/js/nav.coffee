@@ -42,7 +42,11 @@ do ->
   load correct page on statechange
   ###
   History.Adapter.bind window, 'statechange', ->
-    setPage(History.getState().data.url)
+    url = History.getState().data.url
+
+    # don't switch to landing page on menu click
+    if url != '#'
+      setPage(History.getState().data.url)
 
   ###
   intercepts anchor clicks and navigates to the
