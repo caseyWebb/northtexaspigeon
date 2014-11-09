@@ -13,7 +13,7 @@
 
       <hr>
 
-      <li ng-repeat="_ad in ads">
+      <li ng-repeat="_ad in ads | orderBy: '-expiresOn'">
         <a ng-class="{ active: _ad.id === ad.id }"
            ui-sref=".show({ adID: _ad.id })">
            {{ _ad.name }}

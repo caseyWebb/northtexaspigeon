@@ -21,7 +21,7 @@
                 ng-change="getVideos(true)">
       </li>
 
-      <li ng-repeat="_video in videos">
+      <li ng-repeat="_video in videos | orderBy: '-createdAt'">
         <a ng-class="{ active: _video.slug === video.slug }"
            ui-sref=".show({ videoID: _video.slug })">
            {{ _video.title }}

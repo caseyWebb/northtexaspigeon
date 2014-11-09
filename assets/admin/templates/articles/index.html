@@ -21,7 +21,7 @@
                 ng-change="getArticles(true)">
       </li>
 
-      <li ng-repeat="_article in articles">
+      <li ng-repeat="_article in articles | orderBy: '-createdAt'">
         <a ng-class="{ active: _article.slug === article.slug }"
            ui-sref=".show({ articleID: _article.slug })">
            {{ _article.title }}

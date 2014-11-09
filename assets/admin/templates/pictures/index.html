@@ -21,7 +21,7 @@
                 ng-change="getPictures(true)">
       </li>
 
-      <li ng-repeat="_picture in pictures">
+      <li ng-repeat="_picture in pictures | orderBy: '-createdAt'">
         <a ng-class="{ active: _picture.slug === picture.slug }"
            ui-sref=".show({ pictureID: _picture.slug })">
            {{ _picture.title }}
