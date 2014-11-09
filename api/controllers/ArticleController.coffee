@@ -65,7 +65,7 @@ module.exports =
   update: (req, res) ->
 
     # upload image
-    req.file('imgFile').upload Uploader.forArticles(req.param('title')), (err, uploadedFiles) ->
+    req.file('images').upload Uploader.forArticles(req.param('title')), (err, uploadedFiles) ->
 
       # sub tmp srcs for new URLs
       Formatter.subImgSrcs req.param('markdown'), uploadedFiles, (mdWithImgUrls) ->

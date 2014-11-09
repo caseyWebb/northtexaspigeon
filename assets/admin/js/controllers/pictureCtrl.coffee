@@ -128,7 +128,7 @@ app
           image: s.picture.image
           markdown: s.picture.markdown
         file: s.picture.image.file
-        fileFormDataName: 'imgFile'
+        fileFormDataName: 'images'
 
       .success (picture) ->
         if updating

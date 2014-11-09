@@ -27,7 +27,7 @@ module.exports =
   create: (req, res) ->
 
     # upload image
-    req.file('imgFile').upload Uploader.forPictures(req.param('title')), (err, uploadedFile) ->
+    req.file('images').upload Uploader.forPictures(req.param('title')), (err, uploadedFile) ->
 
       # fetch current user
       User.findOne(req.session.user.id).exec (err, currentUser) ->
@@ -47,7 +47,7 @@ module.exports =
   update: (req, res) ->
     
     # upload image
-    req.file('imgFile').upload Uploader.forPictures(req.param('title')), (err, uploadedFile) ->
+    req.file('images').upload Uploader.forPictures(req.param('title')), (err, uploadedFile) ->
       return res.serverError(err) if err?
 
       # create picture record
