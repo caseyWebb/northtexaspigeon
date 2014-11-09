@@ -24,7 +24,7 @@ module.exports = (data, options) ->
   res.status(200)
 
   # If appropriate, serve data as JSON
-  if (req.wantsJSON && !req.param('forceHTML') && req.ip != '127.0.0.1')
+  if (req.wantsJSON && !req.param('forceHTML') && req.ip == '127.0.0.1')
     return res.json(data)
 
   # If second argument is a string, we take that to mean it refers to a view.
