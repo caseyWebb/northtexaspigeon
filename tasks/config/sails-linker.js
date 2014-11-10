@@ -73,7 +73,7 @@ module.exports = function(grunt) {
 				appRoot: '.tmp/public'
 			},
 			files: {
-				'views/linker/public/scripts.jade': ['.tmp/public/min/productionPublic.min.js']
+				'views/linker/public/scripts.jade': ['.tmp/public/min/productionPublic.*.min.js']
 			}
 		},
 
@@ -85,7 +85,7 @@ module.exports = function(grunt) {
 				appRoot: '.tmp/public'
 			},
 			files: {
-				'views/linker/admin/scripts.jade': ['.tmp/public/min/productionAdmin.min.js']
+				'views/linker/admin/scripts.jade': ['.tmp/public/min/productionAdmin.*.min.js']
 			}
 		},
 
@@ -98,7 +98,7 @@ module.exports = function(grunt) {
 				relative: true
 			},
 			files: {
-				'views/linker/public/scripts.jade': ['.tmp/public/min/productionPublic.min.js']
+				'views/linker/public/scripts.jade': ['.tmp/public/min/productionPublic.*.min.js']
 			}
 		},
 
@@ -111,7 +111,7 @@ module.exports = function(grunt) {
 				relative: true
 			},
 			files: {
-				'views/linker/admin/scripts.jade': ['.tmp/public/min/productionAdmin.min.js']
+				'views/linker/admin/scripts.jade': ['.tmp/public/min/productionAdmin.*.min.js']
 			}
 		},
 
@@ -179,7 +179,7 @@ module.exports = function(grunt) {
 				appRoot: '.tmp/public'
 			},
 			files: {
-				'views/linker/public/styles.jade': ['.tmp/public/min/productionPublic.min.css']
+				'views/linker/public/styles.jade': ['.tmp/public/min/productionPublic.*.min.css']
 			}
 		},
 
@@ -191,7 +191,7 @@ module.exports = function(grunt) {
 				appRoot: '.tmp/public'
 			},
 			files: {
-				'views/linker/admin/styles.jade': ['.tmp/public/min/productionAdmin.min.css']
+				'views/linker/admin/styles.jade': ['.tmp/public/min/productionAdmin.*.min.css']
 			}
 		},
 
@@ -204,7 +204,7 @@ module.exports = function(grunt) {
 				relative: true
 			},
 			files: {
-				'views/linker/public/styles.jade': ['.tmp/public/min/productionPublic.min.css']
+				'views/linker/public/styles.jade': ['.tmp/public/min/productionPublic.*.min.css']
 			}
 		},
 
@@ -217,25 +217,13 @@ module.exports = function(grunt) {
 				relative: true
 			},
 			files: {
-				'views/linker/admin/styles.jade': ['.tmp/public/min/productionAdmin.min.css']
+				'views/linker/admin/styles.jade': ['.tmp/public/min/productionAdmin.*.min.css']
 			}
 		},
 
 		//////////////////////////////////////////////////////////////////////////////////
 
 		// Bring in JST template object
-		devPublicTpl: {
-			options: {
-				startTag: '// TEMPLATES',
-				endTag: '// TEMPLATES END',
-				fileTmpl: 'script(type="text/javascript", src="%s")',
-				appRoot: '.tmp/public'
-			},
-			files: {
-				'views/linker/public/templates.jade': ['.tmp/public/publicJST.js']
-			}
-		},
-
 		devAdminTpl: {
 			options: {
 				startTag: '// TEMPLATES',

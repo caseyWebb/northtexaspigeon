@@ -4,7 +4,6 @@ module.exports = function (grunt) {
     'sails-linker:devAdminJsRelative',
 		'sails-linker:devPublicStylesRelative',
     'sails-linker:devAdminStylesRelative',
-		'sails-linker:devPublicTpl',
     'sails-linker:devAdminTpl'
 	]);
 };
