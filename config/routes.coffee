@@ -43,6 +43,11 @@ module.exports.routes =
 
   'POST /emailthread/:threadID/reply': 'EmailThread.reply'
 
+  # legacy routes
+  'GET /articles/:id': 'Article.findOne'
+  'GET /pictures/:id': 'Picture.findOne'
+  'GET /videos/:id': 'Video.findOne'
+
   # passthrough to angular admin panel
   'GET /admin*':
     view: 'admin'
