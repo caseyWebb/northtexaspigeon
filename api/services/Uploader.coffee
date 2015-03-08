@@ -3,7 +3,8 @@ This module contains the receivers for uploading and resizing images.
 You will need graphicsmagick installed on your system.
 
 The upload location is configurable, and will require you to set it
-up to serve assets at the url provided in local.coffee -> uploads -> url.
+up to serve assets as defined in config -> local -> uploads
+
 Not having the static server won't break anything; you'll still be able
 to test image uploads by looking in the uploads folder but you'll have no
 way of linking to them and viewing them.
@@ -24,9 +25,6 @@ If you already know how to get nginx up and running, here's the config I'm using
  /private/etc/hosts
 
    127.0.0.1 uploads.ntpigeon.local
-
-If you know nothing about nginx, check the 'Getting Up and Running' wiki
-on GitHub.
 
 We're using the mkdirp module (https://www.npmjs.org/package/mkdirp) so you
 don't have to worry about provisioning the folder, it just needs to exist and be
