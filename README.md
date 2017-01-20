@@ -1,5 +1,7 @@
 # NorthTexasPigeon.com
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/caseyWebb/northtexaspigeon.svg)](https://greenkeeper.io/)
+
 The North Texas Pigeon is written using SailsJS and
 uses AngularJS on the admin CMS.
 
